@@ -52,7 +52,7 @@ const path = {
         js: `${buildFolder}/js/`,
         css: `${buildFolder}/css/`,
         html: `${buildFolder}/`,
-        files: `${buildFolder}/files/`,
+        files: `${buildFolder}/`,
     },
     src: {
         svgicons: `${srcFolder}/img/**/*.svg`,

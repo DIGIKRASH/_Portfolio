@@ -5,7 +5,11 @@
   "main": "gulpfile.js",
   "type": "module",
   "dependencies": {
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "locomotive-scroll": "^4.1.4",
+    "stats.js": "^0.17.0",
+    "three": "^0.139.2",
+    "three.js": "^0.77.1"
   },
   "devDependencies": {
     "browser-sync": "^2.27.7",
