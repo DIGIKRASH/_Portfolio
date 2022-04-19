@@ -5,9 +5,23 @@
 "title": "Главная",
 })
 
-<body>
+<body data-barba="wrapper">
+    <div class="loader">
+        <div class="page-transition"></div>
+    </div>
 
-    <main class="main" data-scroll-container>
+    <main class="main" data-scroll-container data-barba="container" data-barba-namespace="home-section">
+
+        <header>
+            <div class="logo">
+                LOGO
+            </div>
+            <ul class="menu-items">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <ul />
+        </header>
 
         <!-- scroll-circle
         ======================================================= -->
@@ -21,10 +35,6 @@
         <!-- scroll-circle end -->
 
 
-        <!-- круг линиями thee.js
-        ======================================================= -->
-        <canvas class="scene scene--full" id="scene"></canvas>
-        <!-- круг линиями thee.js end -->
 
 
         <!-- переход при закрытии
