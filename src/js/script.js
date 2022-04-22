@@ -15,19 +15,12 @@
     })
 }())
 
-
 // Jquery ----------------
 @@include('../../node_modules/jquery/dist/jquery.min.js');
 
 
 // Plugins ----------------
-@@include('./plugins/morph-text.js');
-@@include('./plugins/typing-text.js');
-@@include('./plugins/round-text.js');
-@@include('./plugins/scene-background.js');
 
-
-@@include('../../node_modules/locomotive-scroll/dist/locomotive-scroll.min.js');
 
 
 // Main-JS -----------------
@@ -35,4 +28,4 @@
 
 
 
-javascript: (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
+// javascript: (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
