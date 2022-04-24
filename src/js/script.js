@@ -20,6 +20,9 @@
 
 
 // Plugins ----------------
+@@include('./plugins/cursor-text.js');
+@@include('./plugins/textCircle.js');
+@@include('./plugins/slice-image.js');
 
 
 
