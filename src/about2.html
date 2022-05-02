@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('./blocks/main/_head.html', {
+"title": "О нас",
+})
+
+<body data-barba="wrapper">
+    <div class="loader">
+        <div class="page-transition"></div>
+    </div>
+
+    <main class="main" data-scroll-container data-barba="container" data-barba-namespace="about-section">
+
+        <header>
+            <div class="logo">
+                LOGO
+            </div>
+            <ul class="menu-items">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <ul />
+        </header>
+
+    </main>
+
+
+
+    <!-- Scripts -->
+    @@include('./blocks/main/_js.html')
+
+</body>
+
+</html>
