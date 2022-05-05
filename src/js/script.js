@@ -20,7 +20,7 @@
 
 
 // Plugins ----------------
-
+@@include('./plugins/letters-anim.js');
 
 
 

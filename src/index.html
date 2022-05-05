@@ -9,43 +9,57 @@
 
 
     <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader__block">
-            <div class='container-spinner'>
-                <div class='spinner'>
-                    <div class='item'></div>
-                    <div class='item'></div>
-                    <div class='item'></div>
-                    <div class='item'></div>
-                    <div class='item'></div>
-                    <div class='item'></div>
-                    <div class='item'></div>
-                    <div class='item'></div>
-                </div>
+    <!-- <div class="preloader">
+        <div class="loader__wrapper">
+            <div class="Loader">
+                <p id="loader-percent">0%</p>
+                <span class="Loader__Circle"></span>
+                <span class="Loader__Circle"></span>
             </div>
-            <svg>
-                <defs>
-                    <filter id='goo'>
-                        <feGaussianBlur in='SourceGraphic' stdDeviation='8' result='blur' />
-                        <feColorMatrix in='blur' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 50 -8' result='goo' />
-                        <feBlend in='SourceGraphic' in2='goo' />
-                    </filter>
-                </defs>
-            </svg>
         </div>
+    </div> -->
+    <div class="loader blue">
+        <div class="progress-bar">
+            <div class="progress-stripes"></div>
+            <div class="percentage">0%</div>
+        </div>
+    </div>
+
+
+    <div class="slide">
+        <h2 class="word">Dmitriy Bozhko</h2>
     </div>
 
     <!-- loading screen  -->
     <div class="loading-container">
         <div class="loading-screen">
+            <div class="loader__wrapper">
+                <div class="Loader">
+                    <span class="Loader__Circle"></span>
+                    <span class="Loader__Circle"></span>
+                </div>
+            </div>
         </div>
+        <div class="loading-screen2"></div>
     </div>
+
+    <div class="overlay">
+        <div class="revealer"></div>
+        <div class="revealer"></div>
+    </div>
+
+    <!-- <button id="clickThis">Click this shit</button> -->
 
     @@include('./blocks/main/_header.html')
 
     <main data-barba="container" data-barba-namespace="home">
 
-        
+        @@include('./blocks/main/_menu.html', {
+        "home": "active",
+        "about": "",
+        "works": "",
+        "contact": "",
+        })
 
     </main>
     <!-- Scripts -->

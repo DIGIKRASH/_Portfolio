@@ -122,6 +122,7 @@ function delay(n) {
 }
 
 const loadingScreen = document.querySelector('.loading-screen')
+const loadingScreen2 = document.querySelector('.loading-screen2')
 const mainNavigation = document.querySelector('.main-navigation')
 
 // Function to add and remove the page transition screen
@@ -129,10 +130,19 @@ function pageTransitionIn() {
   // GSAP methods can be chained and return directly a promise
   // but here, a simple tween is enough
   return gsap
-    // .timeline()
+    .timeline()
     // .set(loadingScreen, { transformOrigin: 'bottom left'})
     // .to(loadingScreen, { duration: .5, scaleY: 1 })
-    .to(loadingScreen, { duration: .5, scaleY: 1, transformOrigin: 'bottom left' })
+    .to(loadingScreen, {
+      duration: .5,
+      scaleX: 1,
+      transformOrigin: 'left'
+    })
+    .to(loadingScreen2, {
+      duration: .9,
+      scaleX: 1,
+      transformOrigin: 'left'
+    })
 }
 // Function to add and remove the page transition screen
 function pageTransitionOut(container) {
@@ -142,11 +152,18 @@ function pageTransitionOut(container) {
     .add('start') // Use a label to sync screen and content animation
     .to(loadingScreen, {
       duration: 0.5,
-      scaleY: 0,
+      scaleX: 0,
       skewX: 0,
-      transformOrigin: 'top left',
+      transformOrigin: 'right',
       ease: 'power1.out'
     }, 'start')
+    .to(loadingScreen2, {
+      duration: 0.9,
+      scaleX: 0,
+      skewX: 0,
+      transformOrigin: 'right',
+      ease: 'power1.out'
+    })
     .call(contentAnimation, [container], 'start')
 }
 
@@ -212,13 +229,111 @@ $(function () {
 
 });
 
-
+// document.querySelector('.loader__video').play();
 
 // document.getElementById('btnn').addEventListener('click', function () {
 //   document.querySelector('.menu').classList.toggle('class1');
 // });
 
 $('.menu-diamond').click(function () {
-  $('.header').toggleClass('mobile');
+  $('.menu').toggleClass('close');
+  $('.menu').toggleClass('open');
+  $(this).toggleClass('active');
 });
 
+$('.lang__list-item').click(function () {
+  $('.lang__list-item').removeClass('active');
+  $(this).toggleClass('active');
+});
+
+
+// --- Маленький Header при скролле
+$(window).scroll(() => {
+  var windowTop = $(window).scrollTop();
+  windowTop > 10 ? $('.header').addClass('header-mini') : $('.header').removeClass('header-mini');
+});
+if ($(window).scrollTop() > 10) {
+  $('.header').addClass('header-mini')
+} else {
+  $('.header').removeClass('header-mini');
+}
+
+
+$(document).ready(function () {
+  function whichAnimationEvent() {
+    var t,
+      el = document.createElement("fakeelement");
+
+    var animations = {
+      "animation": "animationend",
+      "OAnimation": "oAnimationEnd",
+      "MozAnimation": "animationend",
+      "WebkitAnimation": "webkitAnimationEnd"
+    }
+
+    for (t in animations) {
+      if (el.style[t] !== undefined) {
+        return animations[t];
+      }
+    }
+  }
+
+  var animationEvent = whichAnimationEvent();
+
+
+  $('#clickThis').click(
+    // pageTransition11()
+    function pageTransition11() {
+      $('.container').fadeOut(500);
+      $('.container').promise().done(function () {
+        // After animation ends
+        $('.overlay .revealer:nth-child(1)').addClass('slideIn-1');
+        $('.overlay .revealer:nth-child(2)').addClass('slideIn-2');
+        $('.container').delay(500).fadeIn();
+        // After animation ends
+        $('.overlay .revealer:nth-child(1)').one(animationEvent,
+          function (event) {
+
+            $('.overlay .revealer:nth-child(1)').removeClass('slideIn-1');
+            $('.overlay .revealer:nth-child(2)').removeClass('slideIn-2');
+          });
+      });
+    }
+  )
+
+});
+
+
+// const LANDING = {};
+// LANDING.intro = document.querySelector(".intro-screen");
+// LANDING.start = LANDING.intro.querySelector("div#start");
+// LANDING.path = LANDING.intro.querySelector("path");
+
+// const svgAnimation = () => {
+
+//   anime({
+//     targets: LANDING.intro,
+//     duration: 2000,
+//     easing: "easeInOutSine",
+//     translateY: "-200vh"
+//   });
+
+//   anime({
+//     targets: LANDING.path,
+//     duration: 1500,
+//     easing: "easeInOutSine",
+//     d: LANDING.path.getAttribute("pathdata:id")
+//   });
+
+// };
+
+// window.onload = function () {
+//   svgAnimation();
+// }
+
+
+
+
+
+
+$("body").css("background-color","red");
