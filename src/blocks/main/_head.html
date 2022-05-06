@@ -20,12 +20,15 @@
     <!-- Preload -->
     <script>
         window.onload = function () {
-            document.body.classList.add('loaded-hiding');
+            document.body.classList.add('loading');
             window.setTimeout(function () {
                 document.body.classList.add('loaded');
-                document.body.classList.remove('loaded-hiding');
-                document.documentElement.classList.remove('loaded-hiding');
+                document.body.classList.remove('loading');
+                document.documentElement.classList.remove('loading');
             }, 500);
+            window.setTimeout(function () {
+                document.documentElement.classList.remove('hidden');
+            }, 8200);
         }
     </script>
 

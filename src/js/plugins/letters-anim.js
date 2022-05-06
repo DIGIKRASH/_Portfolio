@@ -306,9 +306,9 @@
 
   window.setTimeout(function () {
     const shapeText = new ShapeText(document.querySelector('.slide'));
-  }, 2000)
+  }, 4000)
   window.setTimeout(function () {
     document.querySelector('.slide').classList.add('active');
-  }, 4000)
+  }, 5000)
 }
 

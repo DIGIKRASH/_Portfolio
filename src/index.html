@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="hidden">
 
 @@include('./blocks/main/_head.html', {
 "title": "Home",
@@ -7,53 +7,39 @@
 
 <body data-barba="wrapper">
 
-
-    <!-- Preloader -->
-    <!-- <div class="preloader">
-        <div class="loader__wrapper">
-            <div class="Loader">
-                <p id="loader-percent">0%</p>
-                <span class="Loader__Circle"></span>
-                <span class="Loader__Circle"></span>
-            </div>
-        </div>
-    </div> -->
-    <div class="loader blue">
-        <div class="progress-bar">
-            <div class="progress-stripes"></div>
-            <div class="percentage">0%</div>
-        </div>
+    <!-- preloader home-page -->
+    <div class="preloader">
+        <div class="progress"><span id="progress-value">0</span>%</div>
+        <span class="circle"></span>
+        <span class="circle"></span>
     </div>
 
-
+    <!-- intro -->
     <div class="slide">
         <h2 class="word">Dmitriy Bozhko</h2>
     </div>
 
-    <!-- loading screen  -->
-    <div class="loading-container">
-        <div class="loading-screen">
-            <div class="loader__wrapper">
-                <div class="Loader">
-                    <span class="Loader__Circle"></span>
-                    <span class="Loader__Circle"></span>
-                </div>
-            </div>
-        </div>
-        <div class="loading-screen2"></div>
-    </div>
+    <!-- barba loadind screen  -->
+    @@include('./blocks/main/_barba-loading.html')
 
-    <div class="overlay">
-        <div class="revealer"></div>
-        <div class="revealer"></div>
-    </div>
-
-    <!-- <button id="clickThis">Click this shit</button> -->
-
+    <!-- header -->
     @@include('./blocks/main/_header.html')
 
+     <!-- <div class="loader__wrapper">
+        <div class="Loader">
+            <span class="Loader__Circle"></span>
+            <span class="Loader__Circle"></span>
+        </div>
+    </div> -->
+
+    <!-- <div class="overlay">
+        <div class="revealer"></div>
+        <div class="revealer"></div>
+    </div> -->
+    
     <main data-barba="container" data-barba-namespace="home">
 
+        <!-- menu -->
         @@include('./blocks/main/_menu.html', {
         "home": "active",
         "about": "",
@@ -62,7 +48,8 @@
         })
 
     </main>
-    <!-- Scripts -->
+
+    <!-- scripts -->
     @@include('./blocks/main/_js.html')
 
 </body>

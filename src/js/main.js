@@ -334,6 +334,59 @@ $(document).ready(function () {
 
 
 
+var runPreloader = function() {
+  document.getElementById("progress-value").textContent="0";
+  var counter = 0;
+  var i = setInterval(function(){
+      // do your thing
+      document.getElementById("progress-value").textContent=Math.ceil((counter+1)*2.5);
+      counter++;
+      if(counter === 40) { // 2s = 40 * 50
+          clearInterval(i);
+          setTimeout(hidePreloader, 250);
+      }
+  }, 50);
+};
+
+runPreloader();
 
 
-$("body").css("background-color","red");
+// $("body").css("background-color","red");
+
+
+let elements = document.querySelectorAll('.menu__list-link');
+
+elements.forEach(element => {
+  let innerText = element.innerText;
+  element.innerHTML = '';
+  
+  let textContainer = document.createElement('div');
+  textContainer.classList.add('block');
+  
+  for (let letter of innerText) {
+    let span = document.createElement('span');
+    span.innerText = letter.trim() === '' ? '\xa0': letter;
+    span.classList.add('letter');
+    textContainer.appendChild(span);
+  }
+  
+  element.appendChild(textContainer);
+  element.appendChild(textContainer.cloneNode(true));
+});
+
+
+
+
+
+// for presentation purpose
+setTimeout(() => {
+  elements.forEach(element => {
+    element.classList.add('play');
+  })
+}, 600);
+
+elements.forEach(element => {
+  element.addEventListener('mouseover', () => {
+    element.classList.remove('play');
+  });
+});
