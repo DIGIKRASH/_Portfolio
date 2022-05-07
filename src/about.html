@@ -1,53 +1,20 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="hidden">
 
-@@include('./blocks/main/_head.html', {
-"title": "Home",
+@@include('./blocks/main/_head2.html', {
+"title": "About",
 })
 
-<body data-barba="wrapper">
+<body class="about" data-barba="wrapper" data-scroll-container>
 
-    <!-- <div class="preloader">
-        <div class="loader__wrapper">
-            <div class="Loader" data-text="loading">
-                <span class="Loader__Circle"></span>
-                <span class="Loader__Circle"></span>
-            </div>
-            <video class="loader__video" preload="auto" no-controls autoplay loop playsinline muted>
-                <source src="./loader-video.mp4" type='video/mp4' />
-            </video>
-        </div>
-    </div> -->
+    @@include('./blocks/_preloader-page.html')
 
-    <div class="intro-screen">
-        <div class="intro-screen__titel">
-            <div class="loader__wrapper">
-                <div class="Loader" data-text="loading">
-                    <span class="Loader__Circle"></span>
-                    <span class="Loader__Circle"></span>
-                </div>
-                <video class="loader__video" preload="auto" no-controls autoplay loop playsinline muted>
-                    <source src="./loader-video.mp4" type='video/mp4' />
-                </video>
-            </div>
-        </div>
-        <div class="intro-screen__shape">
-            <svg class="shape" width="100%" height="100vh" preserveAspectRatio="none" viewBox="0 0 1440 800"><path d="M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z" pathdata:id="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z"></path></svg>
-        </div>
-    </div>
+    <!-- barba loadind screen  -->
+    @@include('./blocks/main/_barba-loading.html')
 
-    <div class="loading-container">
-        <div class="loading-screen"></div>
-        <div class="loading-screen2"></div>
-    </div>
-
-    <div class="overlay">
-        <div class="revealer"></div>
-        <div class="revealer"></div>
-    </div>
-
-
+    <!-- header -->
     @@include('./blocks/main/_header.html')
+
 
     <main data-barba="container" data-barba-namespace="about">
 

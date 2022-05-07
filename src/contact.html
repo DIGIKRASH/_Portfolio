@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="hidden">
 
-@@include('./blocks/main/_head.html', {
-"title": "Home",
+@@include('./blocks/main/_head2.html', {
+"title": "Contact",
 })
 
-<body data-barba="wrapper">
+<body class="contact" data-barba="wrapper" data-scroll-container>
 
-    <!-- loading screen  -->
-    <div class="loader">
-        <div class="page-transition"></div>
-    </div>
+    @@include('./blocks/_preloader-page.html')
+
+    <!-- barba loadind screen  -->
+    @@include('./blocks/main/_barba-loading.html')
+
+    <!-- header -->
+    @@include('./blocks/main/_header.html')
+
 
     <main data-barba="container" data-barba-namespace="contact">
-        
-        @@include('./blocks/main/_header.html')
 
+        @@include('./blocks/main/_menu.html', {
+        "home": "",
+        "about": "",
+        "works": "",
+        "contact": "active",
+        })
 
     </main>
+
     <!-- Scripts -->
     @@include('./blocks/main/_js.html')
 

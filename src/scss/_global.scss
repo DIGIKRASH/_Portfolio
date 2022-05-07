@@ -14,6 +14,7 @@ $main: #1c1c1c;
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
 
 $f2: "aromanus";
+$mc: #d3a13b;
 
 // ---- Global-Tags ----
 html {
@@ -139,3 +140,56 @@ a {
 }
 
 
+
+
+// Scrollbar
+::-webkit-scrollbar {
+  display: none;
+}
+html.has-scroll-smooth {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.has-scroll-dragging .c-scrollbar,
+.has-scroll-scrolling .c-scrollbar {
+  opacity: 1;
+}
+.c-scrollbar {
+  width: 10px;
+  position: absolute;
+  right: -2px;
+  top: 0;
+  height: 100vh;
+  transform-origin: center right;
+  transform: scaleX(1);
+  transition: transform 0.2s linear;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+  &:hover {
+      transform: none;
+      opacity: 1;
+  }
+}
+.c-scrollbar_thumb {
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  width: 4px;
+  position: absolute;
+  top: 0;
+  left: 1px;
+  right: 0px;
+  transition: width 0.3s;
+}
+.c-scrollbar:hover {
+  .c-scrollbar_thumb {
+      cursor: grab;
+  }
+}
+.c-scrollbar_thumb:hover {
+  width: 7px;
+}

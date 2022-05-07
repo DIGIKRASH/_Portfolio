@@ -22,6 +22,8 @@
 // Plugins ----------------
 @@include('./plugins/letters-anim.js');
 
+@@include('../../node_modules/locomotive-scroll/dist/locomotive-scroll.min.js');
+
 
 
 

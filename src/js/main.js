@@ -229,16 +229,26 @@ $(function () {
 
 });
 
-// document.querySelector('.loader__video').play();
 
-// document.getElementById('btnn').addEventListener('click', function () {
-//   document.querySelector('.menu').classList.toggle('class1');
-// });
+// --- Locomotive Scroll (Smoth)
+const scroll = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  smoothMobile: true,
+});
+scroll.destroy();
+document.addEventListener("DOMContentLoaded", function (event) {
+  scroll.init();
+});
+
+
+
 
 $('.menu-diamond').click(function () {
   $('.menu').toggleClass('close');
   $('.menu').toggleClass('open');
   $(this).toggleClass('active');
+  $('html').toggleClass('hidden');
 });
 
 $('.lang__list-item').click(function () {
@@ -259,134 +269,53 @@ if ($(window).scrollTop() > 10) {
 }
 
 
+
 $(document).ready(function () {
-  function whichAnimationEvent() {
-    var t,
-      el = document.createElement("fakeelement");
+  const LANDING = {};
+  LANDING.intro = document.querySelector(".preloader-page");
+  LANDING.path = LANDING.intro.querySelector("path");
 
-    var animations = {
-      "animation": "animationend",
-      "OAnimation": "oAnimationEnd",
-      "MozAnimation": "animationend",
-      "WebkitAnimation": "webkitAnimationEnd"
-    }
+  const svgAnimation = () => {
+    console.log("Animation");
 
-    for (t in animations) {
-      if (el.style[t] !== undefined) {
-        return animations[t];
-      }
-    }
-  }
+    anime({
+      targets: LANDING.intro,
+      duration: 2000,
+      easing: "easeInOutSine",
+      translateY: "-200vh"
+    });
 
-  var animationEvent = whichAnimationEvent();
-
-
-  $('#clickThis').click(
-    // pageTransition11()
-    function pageTransition11() {
-      $('.container').fadeOut(500);
-      $('.container').promise().done(function () {
-        // After animation ends
-        $('.overlay .revealer:nth-child(1)').addClass('slideIn-1');
-        $('.overlay .revealer:nth-child(2)').addClass('slideIn-2');
-        $('.container').delay(500).fadeIn();
-        // After animation ends
-        $('.overlay .revealer:nth-child(1)').one(animationEvent,
-          function (event) {
-
-            $('.overlay .revealer:nth-child(1)').removeClass('slideIn-1');
-            $('.overlay .revealer:nth-child(2)').removeClass('slideIn-2');
-          });
-      });
-    }
-  )
-
-});
-
-
-// const LANDING = {};
-// LANDING.intro = document.querySelector(".intro-screen");
-// LANDING.start = LANDING.intro.querySelector("div#start");
-// LANDING.path = LANDING.intro.querySelector("path");
-
-// const svgAnimation = () => {
-
-//   anime({
-//     targets: LANDING.intro,
-//     duration: 2000,
-//     easing: "easeInOutSine",
-//     translateY: "-200vh"
-//   });
-
-//   anime({
-//     targets: LANDING.path,
-//     duration: 1500,
-//     easing: "easeInOutSine",
-//     d: LANDING.path.getAttribute("pathdata:id")
-//   });
-
-// };
-
-// window.onload = function () {
-//   svgAnimation();
-// }
+    anime({
+      targets: LANDING.path,
+      duration: 1500,
+      easing: "easeInOutSine",
+      d: LANDING.path.getAttribute("pathdata:id")
+    });
+  };
+  svgAnimation();
+})
 
 
 
 
-var runPreloader = function() {
-  document.getElementById("progress-value").textContent="0";
+var runPreloader = function () {
+  document.getElementById("progress-value").textContent = "0";
   var counter = 0;
-  var i = setInterval(function(){
-      // do your thing
-      document.getElementById("progress-value").textContent=Math.ceil((counter+1)*2.5);
-      counter++;
-      if(counter === 40) { // 2s = 40 * 50
-          clearInterval(i);
-          setTimeout(hidePreloader, 250);
-      }
+  var i = setInterval(function () {
+    // do your thing
+    document.getElementById("progress-value").textContent = Math.ceil((counter + 1) * 2.5);
+    counter++;
+    if (counter === 40) { // 2s = 40 * 50
+      clearInterval(i);
+      setTimeout(hidePreloader, 250);
+    }
   }, 50);
 };
 
 runPreloader();
 
 
-// $("body").css("background-color","red");
-
-
-let elements = document.querySelectorAll('.menu__list-link');
-
-elements.forEach(element => {
-  let innerText = element.innerText;
-  element.innerHTML = '';
-  
-  let textContainer = document.createElement('div');
-  textContainer.classList.add('block');
-  
-  for (let letter of innerText) {
-    let span = document.createElement('span');
-    span.innerText = letter.trim() === '' ? '\xa0': letter;
-    span.classList.add('letter');
-    textContainer.appendChild(span);
-  }
-  
-  element.appendChild(textContainer);
-  element.appendChild(textContainer.cloneNode(true));
-});
 
 
 
 
-
-// for presentation purpose
-setTimeout(() => {
-  elements.forEach(element => {
-    element.classList.add('play');
-  })
-}, 600);
-
-elements.forEach(element => {
-  element.addEventListener('mouseover', () => {
-    element.classList.remove('play');
-  });
-});
