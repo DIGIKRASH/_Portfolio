@@ -269,6 +269,67 @@ if ($(window).scrollTop() > 10) {
 }
 
 
+// const swiperProjects = new Swiper('.swiper', {
+//   loop: true,
+//   effect: 'fade',
+//   fadeEffect: {
+//     crossFade: true
+//   },
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//   },
+//   // breakpoints: {
+//   //   // when window width is >= 320px
+//   //   320: {
+//   //     slidesPerView: 2,
+//   //     spaceBetween: 20
+//   //   },
+//   //   // when window width is >= 480px
+//   //   480: {
+//   //     slidesPerView: 3,
+//   //     spaceBetween: 30
+//   //   },
+//   // }
+// });
+
+$('.projects__img').hover(function () {
+  setTimeout(() => {
+    $(this).find("#projects__video")[0].play();
+  }, 1000);
+});
+// $('.projects__img').click(function () {
+//   $('#projects__video').paused ? $('#projects__video').play() : $('#projects__video').pause();
+// })
+
+// $('.projects__video').click(function () {
+//   this.paused ? this.play() : this.pause();
+// });
+$(document).on('click', '.projects__img', function () {
+  var video = $(this).find("#projects__video")[0];
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $(document).ready(function () {
   const LANDING = {};

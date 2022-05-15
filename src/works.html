@@ -7,7 +7,7 @@
 
 <body class="works" data-barba="wrapper" data-scroll-container>
 
-    @@include('./blocks/_preloader-page.html')
+    <!-- @@include('./blocks/_preloader-page.html') -->
 
     <!-- barba loadind screen  -->
     @@include('./blocks/main/_barba-loading.html')
@@ -24,6 +24,117 @@
         "works": "active",
         "contact": "",
         })
+
+
+        <!-- projects
+        ======================================================= -->
+        <!-- <section class="projects swiper">
+            <div class="swiper-wrapper">
+                <div class="projects__item swiper-slide">
+                    <div class="projects__img">
+                        <img src="./img/57.jpg" width="" height="" loading="lazy" alt="">
+                        <video class="projects__video" id="projects__video" preload="auto" no-controls loop playsinline muted>
+                            <source src="./loader-video.mp4" type='video/mp4' />
+                        </video>
+                    </div>
+                    <div class="projects__content">
+                        <div class="projects__wave"></div>
+                       
+                        <h2 class="projects__title">
+                            <span>Clothing</span>
+                            <span>Store2</span>
+                        </h2>
+                        <p class="projects__text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled </p>
+                        <div class="projects__num">01</div>
+                        <h6 class="projects__vertical">Lorem Ipsum has</h6>
+                        <div class="projects__patterns">
+                            <svg width="20" height="20" class="projects__pattern">
+                                <use xlink:href="./img/icons/icons.svg#leaves1" />
+                            </svg>
+                            <svg width="20" height="20" class="projects__pattern">
+                                <use xlink:href="./img/icons/icons.svg#leaves2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects__item swiper-slide">
+                    <div class="projects__img">
+                        <img src="./img/project1.jpg" width="" height="" loading="lazy" alt="">
+                    </div>
+                    <div class="projects__content">
+                        <div class="projects__wave"></div>
+                     
+                        <h2 class="projects__title">
+                            <span>Clothing</span>
+                            <span>Store3</span>
+                        </h2>
+                        <p class="projects__text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled </p>
+                        <div class="projects__num">01</div>
+                        <h6 class="projects__vertical">Lorem Ipsum has</h6>
+                        <div class="projects__patterns">
+                            <svg width="20" height="20" class="projects__pattern">
+                                <use xlink:href="./img/icons/icons.svg#leaves1" />
+                            </svg>
+                            <svg width="20" height="20" class="projects__pattern">
+                                <use xlink:href="./img/icons/icons.svg#leaves2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button swiper-button-prev"></div>
+            <div class="swiper-button swiper-button-next"></div>
+        </section> -->
+        <!-- projects end -->
+
+
+        <div id="slider">
+
+            <div class="slider-inner">
+                <div id="slider-content">
+                    <div class="meta">Species</div>
+
+                    <h2 id="slide-title">Amur <br>Leopard</h2>
+
+                    <span data-slide-title="0">Amur <br>Leopard</span>
+                    <span data-slide-title="1">Asiatic <br>Lion</span>
+                    <span data-slide-title="2">Siberian <br>Tiger</span>
+                    <span data-slide-title="3">Brown <br>Bear</span>
+
+                    <div class="meta">Status</div>
+
+                    <div id="slide-status">Critically Endangered</div>
+
+                    <span data-slide-status="0">Critically Endangered</span>
+                    <span data-slide-status="1">Endangered</span>
+                    <span data-slide-status="2">Endangered</span>
+                    <span data-slide-status="3">Least Concern</span>
+                    
+                    <svg width="20" height="20" class="projects__pattern">
+                        <use xlink:href="./img/icons/icons.svg#leaves1" />
+                    </svg>
+                    <!-- <p data-slide-status="1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nulla molestiae, ex dolores atque numquam aut eum ea repellendus nesciunt. Debitis praesentium fugiat quam voluptatibus sit? Quos porro iure temporibus?</p> -->
+                </div>
+            </div>
+
+			<img src="img/project1.jpg" /> 
+            <img src="img/57.jpg" />
+			<img src="img/hypercritical__img.jpg" />
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
+
+            <div id="pagination">
+                <button class="active" data-slide="0"></button>
+                <button data-slide="1"></button>
+                <button data-slide="2"></button>
+                <button data-slide="3"></button>
+            </div>
+
+        </div>
+
+        <img src="img/project1.jpg" class="test-img">
 
     </main>
 

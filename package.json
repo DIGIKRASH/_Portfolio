@@ -9,6 +9,7 @@
     "jquery": "^3.6.0",
     "locomotive-scroll": "^4.1.4",
     "stats.js": "^0.17.0",
+    "swiper": "^8.1.4",
     "swup": "^2.0.14",
     "three": "^0.139.2",
     "three.js": "^0.77.1"
