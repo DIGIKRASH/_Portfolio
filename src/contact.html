@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru" class="hidden">
 
-@@include('./blocks/main/_head2.html', {
-"title": "Contact",
-})
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dmitriy Bozhko / DIGIKRASH" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.png" type="image/png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style-min.css">
+
+    <style>
+
+    </style>
+
+    <!-- Preload -->
+    <script>
+        window.onload = function () {
+            document.body.classList.add('loading');
+            window.setTimeout(function () {
+                document.body.classList.add('loaded');
+                document.body.classList.remove('loading');
+                document.documentElement.classList.remove('loading');
+            }, 500);
+            window.setTimeout(function () {
+                document.documentElement.classList.remove('hidden');
+            }, 1500);
+        }
+    </script>
+
+</head>
 
 <body class="contact" data-barba="wrapper" data-scroll-container>
 
@@ -33,7 +65,7 @@
                     <div class="contact-form__titel">
                         <h2 class="contact-form__title">
                             <span>Связаться</span>
-                            <span>с нами</span>
+                            <span>с мной</span>
                         </h2>
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="contact__pattern">
                             <defs>
@@ -73,7 +105,7 @@
                             <div class="contact__form-message input-block">
                                 <textarea name="contact__form-message" id="contact__form-message" class="input" placeholder="Сообщение:"></textarea>
                             </div>
-                            <button type="submit" class="contact__form-button">Отправить</button>
+                            <button type="submit" class="contact__form-button" id="contact__form-button">Отправить</button>
                         </form>
                     </div>
                 </div>
@@ -81,54 +113,46 @@
         </section>
         <!-- contact-form end -->
 
-        <footer class="footer" data-scroll-section>
-            <div class="container">
-                <p class="footer__copy">Layout creator <b>Dmitriy Bozhko</b></p>
-                <div class="waves">
-                    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 52.917" preserveAspectRatio="none">
-                        <defs>
-                            <path id="wave" d="M0 0c22.863 0 40.637 25.93 63.5 25.93S104.137 0 127 0s40.637 25.93 63.5 25.93S231.137 0 254 0s40.637 25.93 63.5 25.93S358.137 0 381 0s40.637 25.93 63.5 25.93S485.137 0 508 0s40.637 25.93 63.5 25.93S612.137 0 635 0s40.637 25.93 63.5 25.93S739.137 0 762 0v52.917H0z" fill="purple"></path>
-                        </defs>
-                        <g>
-                            <use href="#wave"></use>
-                        </g>
-                        <g transform="translate(761 0)">
-                            <use href="#wave"></use>
-                        </g>
-                    </svg>
-                    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 52.917" preserveAspectRatio="none">
-                        <defs>
-                            <path id="wave" d="M0 0c22.863 0 40.637 25.93 63.5 25.93S104.137 0 127 0s40.637 25.93 63.5 25.93S231.137 0 254 0s40.637 25.93 63.5 25.93S358.137 0 381 0s40.637 25.93 63.5 25.93S485.137 0 508 0s40.637 25.93 63.5 25.93S612.137 0 635 0s40.637 25.93 63.5 25.93S739.137 0 762 0v52.917H0z" fill="purple"></path>
-                        </defs>
-                        <g>
-                            <use href="#wave"></use>
-                        </g>
-                        <g transform="translate(761 0)">
-                            <use href="#wave"></use>
-                        </g>
-                    </svg>
-                    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 52.917" preserveAspectRatio="none">
-                        <defs>
-                            <path id="wave" d="M0 0c22.863 0 40.637 25.93 63.5 25.93S104.137 0 127 0s40.637 25.93 63.5 25.93S231.137 0 254 0s40.637 25.93 63.5 25.93S358.137 0 381 0s40.637 25.93 63.5 25.93S485.137 0 508 0s40.637 25.93 63.5 25.93S612.137 0 635 0s40.637 25.93 63.5 25.93S739.137 0 762 0v52.917H0z" fill="purple"></path>
-                        </defs>
-                        <g>
-                            <use href="#wave"></use>
-                        </g>
-                        <g transform="translate(761 0)">
-                            <use href="#wave"></use>
-                        </g>
-                    </svg>
-                </div>
-            </div>
-        </footer>
+        @@include('./blocks/main/_footer.html')
 
     </main>
 
 
-
-
-    <!-- Scripts -->
+    
+    <!-- Global Scripts -->
     @@include('./blocks/main/_js.html')
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+
+    <!-- preloader -->
+    <script>
+        $(document).ready(function () {
+            const LANDING = {};
+            LANDING.intro = document.querySelector(".preloader-page");
+            LANDING.path = LANDING.intro.querySelector("path");
+
+            const svgAnimation = () => {
+                console.log("Animation");
+
+                anime({
+                    targets: LANDING.intro,
+                    duration: 2000,
+                    easing: "easeInOutSine",
+                    translateY: "-200vh"
+                });
+
+                anime({
+                    targets: LANDING.path,
+                    duration: 1500,
+                    easing: "easeInOutSine",
+                    d: LANDING.path.getAttribute("pathdata:id")
+                });
+            };
+            svgAnimation();
+        })
+    </script>
+    <!-- blob animation -->
     <script>
         var radius = 8;
         TweenMax.staggerFromTo('.blob', 4, {
@@ -153,7 +177,74 @@
             repeat: -1
         });
     </script>
+    <!-- check validation form -->
+    <script>
+        // --- Проверка валидации формы
+        $(document).ready(function () {
+            $('#contact__form').submit(function (e) {
+                e.preventDefault();
 
+                var name = $('#contact__form-name').val();
+                var email = $('#contact__form-email').val();
+                var message = $('#contact__form-message').val();
+
+                $(".error").remove();
+                $(".input-block").removeClass('input-error');
+
+                setTimeout(function () {
+                    $('.error').remove();
+                }, 5000);
+
+                var errorForm = false;
+
+                if (name.length < 1) {
+                    $('#contact__form-name').parent().addClass('input-error');
+                    errorForm = true;
+                    if ($("html").attr("lang") === 'ru') {
+                        $('#contact__form-name').after('<span class="error">Заполните поле</span>');
+                    } else {
+                        $('#contact__form-name').after('<span class="error">Fill in the field</span>');
+                    }
+                }
+
+                if (email.length < 1) {
+                    $('#contact__form-email').parent().addClass('input-error');
+                    errorForm = true;
+                    if ($("html").attr("lang") === 'ru') {
+                        $('#contact__form-email').after('<span class="error">Заполните поле</span>');
+                    } else {
+                        $('#contact__form-email').after('<span class="error">Fill in the field</span>');
+                    }
+                } else {
+                    var regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    var validEmail = regEx.test(email);
+                    if (!validEmail) {
+                        $('#contact__form-email').parent().addClass('input-error');
+                        errorForm = true;
+                        if ($("html").attr("lang") === 'ru') {
+                            $('#contact__form-email').after('<span class="error">Заполните правильно</span>');
+                        } else {
+                            $('#contact__form-email').after('<span class="error">Fill in correctly</span>');
+                        }
+                    }
+                }
+
+                if (message.length < 1) {
+                    $('#contact__form-message').parent().addClass('input-error');
+                    errorForm = true;
+                    if ($("html").attr("lang") === 'ru') {
+                        $('#contact__form-message').after('<span class="error">Заполните поле</span>');
+                    } else {
+                        $('#contact__form-message').after('<span class="error">Fill in the field</span>');
+                    }
+                }
+
+                if (errorForm = true) {
+                    $('#contact__form-button').addClass('btn-error')
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

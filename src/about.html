@@ -1,56 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru" class="hidden">
 
-@@include('./blocks/main/_head2.html', {
-"title": "About",
-})
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Dmitriy Bozhko / DIGIKRASH" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./favicon.png" type="image/png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style-min.css">
+
+  <style>
+
+  </style>
+
+  <!-- Preload -->
+  <script>
+    window.onload = function () {
+      document.body.classList.add('loading');
+      window.setTimeout(function () {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loading');
+        document.documentElement.classList.remove('loading');
+      }, 500);
+      window.setTimeout(function () {
+        document.documentElement.classList.remove('hidden');
+      }, 1500);
+    }
+  </script>
+
+</head>
 
 <body class="about" data-barba="wrapper" data-scroll-container>
 
-    @@include('./blocks/_preloader-page.html')
+  @@include('./blocks/_preloader-page.html')
 
-    <!-- barba loadind screen  -->
-    @@include('./blocks/main/_barba-loading.html')
+  <!-- barba loadind screen  -->
+  @@include('./blocks/main/_barba-loading.html')
 
-    <!-- header -->
-    @@include('./blocks/main/_header.html')
-
-
-    <main data-barba="container" data-barba-namespace="about">
-
-        @@include('./blocks/main/_menu.html', {
-        "home": "",
-        "about": "active",
-        "works": "",
-        "contact": "",
-        })
+  <!-- header -->
+  @@include('./blocks/main/_header.html')
 
 
-        <!-- top-about
-        ======================================================= -->
-        <section class="top-about">
-            <div class="container">
-                <div class="top-about__inner">
-                    <div class="top-about__titel">
-                        <h1 class="top-about__title1"><span>the highest</span>pleasure</h1>
-                        <h1 class="top-about__title2"><span>is</span>Illusion</h1>
-                    </div>
-                </div>
-                <div id="containerIslands">
-                    <canvas id="islands"></canvas>
-                </div>
-            </div>
-        </section>
-        <!-- top-about end -->
+  <main data-barba="container" data-barba-namespace="about">
 
-    </main>
+    @@include('./blocks/main/_menu.html', {
+    "home": "",
+    "about": "active",
+    "works": "",
+    "contact": "",
+    })
 
-    <!-- Scripts -->
-    @@include('./blocks/main/_js.html')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.5/dat.gui.min.js"></script>
+    <!-- top-about
+    ======================================================= -->
+    <section class="top-about" data-scroll-section>
+      <div class="container">
+        <div class="top-about__inner">
+          <div class="top-about__titel">
+            <h1 class="top-about__title1"><span>the highest</span>pleasure</h1>
+            <h1 class="top-about__title2"><span>is</span>Illusion</h1>
+          </div>
+        </div>
+        <div id="containerIslands">
+          <canvas id="islands"></canvas>
+        </div>
 
-    <script id="fragment" type="x-shader/x-fragment">
+        <div class="lines">
+          <svg class="line-wave" preserveAspectRatio="none" viewBox="0 0 340 160" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path d="M0 80  C 30 10, 55 10, 85 80 S 140 150, 170 80 C 200 10, 225 10, 255 80 S 310 150, 340 80" />
+            </g>
+          </svg>
+          <svg class="line-wave" preserveAspectRatio="none" viewBox="0 0 340 160" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path d="M0 80  C 30 10, 55 10, 85 80 S 140 150, 170 80 C 200 10, 225 10, 255 80 S 310 150, 340 80" />
+            </g>
+          </svg>
+          <svg class="line-wave" preserveAspectRatio="none" viewBox="0 0 340 160" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path d="M0 80  C 30 10, 55 10, 85 80 S 140 150, 170 80 C 200 10, 225 10, 255 80 S 310 150, 340 80" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <!-- top-about end -->
+
+    @@include('./blocks/main/_footer.html')
+
+  </main>
+
+  <!-- Global Scripts -->
+  @@include('./blocks/main/_js.html')
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+
+  <!-- fps -->
+  <script>
+    javascript: (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
+  </script>
+  <!-- first screen texture -->
+  <script id="fragment" type="x-shader/x-fragment">
     #define PI 3.14159265358979323846
     #define SAMPLES 200
   #define COUNT 2
@@ -180,8 +238,7 @@
       gl_FragColor = vec4(vec3(1.), color.r);
     }
   </script>
-
-    <script id="vertex" type="x-shader/x-fragment">
+  <script id="vertex" type="x-shader/x-fragment">
     #define PI 3.14159265358979323846
     varying vec2 vUv;
     void main(){
@@ -189,8 +246,7 @@
       vUv = uv;
     }
   </script>
-
-    <script id="util-noise" type="x-shader/x-fragment">
+  <script id="util-noise" type="x-shader/x-fragment">
 
   //
   // Description : Array and textureless GLSL 2D/3D/4D simplex
@@ -315,127 +371,117 @@
     return normalize( vec3( x , y , z ) * divisor );
   }
     
-</script>
-
-    <script>
-        var inslands = document.getElementById('inslands');
-        var containerIslands = document.getElementById('containerIslands');
-
-        console.clear();
-        let options = {
-            shaderUtils: ['simplex'],
-            width: 20,
-            height: 20,
-            useGUI: false
+  </script>
+  <script>
+    console.clear();
+    let options = {
+      shaderUtils: ['simplex'],
+      width: 20,
+      height: 20,
+      useGUI: false
+    }
+    class App {
+      constructor() {
+        const config = {
+          movement: 'controlled',
+          style: 'padded',
+          // light: 'controlled'
         }
-       class App {
-            constructor() {
-                const config = {
-                    movement: 'controlled',
-                    style: 'padded',
-                    // light: 'controlled'
-                }
-                this.config = config;
-                const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: islands });
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                document.body.appendChild(renderer.domElement);
-                // containerIslands.body.appendChild(renderer.domElement);
+        this.config = config;
+        const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: islands });
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-                const VIEW_ANGLE = 45,
-                    ASPECT = window.innerWidth / window.innerHeight,
-                    NEAR = 0.1,
-                    FAR = 10000;
-                const camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-                camera.position.z = 20;
+        const VIEW_ANGLE = 45,
+          ASPECT = window.innerWidth / window.innerHeight,
+          NEAR = 0.1,
+          FAR = 10000;
+        const camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+        camera.position.z = 20;
 
-                const scene = new THREE.Scene();
+        const scene = new THREE.Scene();
 
-                this.raycaster = new THREE.Raycaster();
+        this.raycaster = new THREE.Raycaster();
 
 
 
 
-                this.camera = camera;
-                this.scene = scene;
-                this.renderer = renderer;
-                this.plane = null;
-                this.clock = new THREE.Clock();
-                this.uniforms = {
-                    uTime: new THREE.Uniform(0),
-                    uMouse: new THREE.Uniform(new THREE.Vector2(0, 0)),
-                    uScreenMouse: new THREE.Uniform(new THREE.Vector2(0, 0)),
-                    oStyle: new THREE.Uniform(1),
-                    oMovement: new THREE.Uniform(0),
-                }
-                this.tick = this.tick.bind(this);
-
-
-                window.addEventListener('resize', this.onResize.bind(this));
-                window.addEventListener('mousemove', this.onMouseMove.bind(this));
-                this.init();
-            }
-           init() {
-                const geometry = new THREE.PlaneBufferGeometry(options.width, options.height, 1, 1);
-                let fragment = document.getElementById('fragment').textContent;
-                fragment = getShaderUtils(options.shaderUtils) + fragment;
-                const material = new THREE.ShaderMaterial({
-                    uniforms: this.uniforms,
-                    fragmentShader: fragment,
-                    vertexShader: document.getElementById('vertex').textContent,
-                    transparent: true
-                });
-                const mesh = new THREE.Mesh(geometry, material);
-                this.plane = mesh;
-                this.scene.add(mesh);
-                if (options.useGUI)
-                    this.initGUI();
-                this.tick();
-            }
-            initGUI() {
-                this.gui = new dat.GUI();
-            }
-            tick() {
-                this.uniforms.uTime.value = this.clock.getElapsedTime();
-                this.uniforms.uTime.needsUpdate = true;
-                this.renderer.render(this.scene, this.camera);
-                requestAnimationFrame(this.tick);
-            }
-            onResize() {
-                this.camera.aspect = window.innerWidth / window.innerHeight;
-                this.camera.updateProjectionMatrix();
-
-                this.renderer.setSize(window.innerWidth, window.innerHeight);
-            }
-            onMouseMove(ev) {
-                let mouse = {
-                    x: (ev.clientX / window.innerWidth) * 2 - 1,
-                    y: - (ev.clientY / window.innerHeight) * 2 + 1
-                }
-                this.uniforms.uScreenMouse.value.set(mouse.x * 0.5 + 0.5, mouse.y * 0.5 + 0.5);
-                this.uniforms.uScreenMouse.needsUpdate = true;
-                const raycaster = this.raycaster;
-                raycaster.setFromCamera(mouse, this.camera);
-                var intersects = raycaster.intersectObjects(this.scene.children);
-                if (intersects.length > 0) {
-                    let obj = intersects[0];
-                    this.uniforms.uMouse.value.set(obj.uv.x, obj.uv.y);
-                    this.uniforms.uMouse.needsUpdate = true;
-                }
-            }
+        this.camera = camera;
+        this.scene = scene;
+        this.renderer = renderer;
+        this.plane = null;
+        this.clock = new THREE.Clock();
+        this.uniforms = {
+          uTime: new THREE.Uniform(0),
+          uMouse: new THREE.Uniform(new THREE.Vector2(0, 0)),
+          uScreenMouse: new THREE.Uniform(new THREE.Vector2(0, 0)),
+          oStyle: new THREE.Uniform(1),
+          oMovement: new THREE.Uniform(0),
         }
+        this.tick = this.tick.bind(this);
 
-        const shaders = {
-            simplex: document.getElementById('util-noise').textContent
-        }
-        const getShaderUtils = (keys) => {
-            return keys.reduce((res, key) => res + shaders[key], '')
-        }
-        const myApp = new App();
-    </script>
 
-    <script>
-        javascript: (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
-    </script>
+        window.addEventListener('resize', this.onResize.bind(this));
+        window.addEventListener('mousemove', this.onMouseMove.bind(this));
+        this.init();
+      }
+      init() {
+        const geometry = new THREE.PlaneBufferGeometry(options.width, options.height, 1, 1);
+        let fragment = document.getElementById('fragment').textContent;
+        fragment = getShaderUtils(options.shaderUtils) + fragment;
+        const material = new THREE.ShaderMaterial({
+          uniforms: this.uniforms,
+          fragmentShader: fragment,
+          vertexShader: document.getElementById('vertex').textContent,
+          transparent: true
+        });
+        const mesh = new THREE.Mesh(geometry, material);
+        this.plane = mesh;
+        this.scene.add(mesh);
+        if (options.useGUI)
+          this.initGUI();
+        this.tick();
+      }
+      initGUI() {
+        this.gui = new dat.GUI();
+      }
+      tick() {
+        this.uniforms.uTime.value = this.clock.getElapsedTime();
+        this.uniforms.uTime.needsUpdate = true;
+        this.renderer.render(this.scene, this.camera);
+        requestAnimationFrame(this.tick);
+      }
+      onResize() {
+        this.camera.aspect = window.innerWidth / window.innerHeight;
+        this.camera.updateProjectionMatrix();
+
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+      onMouseMove(ev) {
+        let mouse = {
+          x: (ev.clientX / window.innerWidth) * 2 - 1,
+          y: - (ev.clientY / window.innerHeight) * 2 + 1
+        }
+        this.uniforms.uScreenMouse.value.set(mouse.x * 0.5 + 0.5, mouse.y * 0.5 + 0.5);
+        this.uniforms.uScreenMouse.needsUpdate = true;
+        const raycaster = this.raycaster;
+        raycaster.setFromCamera(mouse, this.camera);
+        var intersects = raycaster.intersectObjects(this.scene.children);
+        if (intersects.length > 0) {
+          let obj = intersects[0];
+          this.uniforms.uMouse.value.set(obj.uv.x, obj.uv.y);
+          this.uniforms.uMouse.needsUpdate = true;
+        }
+      }
+    }
+
+    const shaders = {
+      simplex: document.getElementById('util-noise').textContent
+    }
+    const getShaderUtils = (keys) => {
+      return keys.reduce((res, key) => res + shaders[key], '')
+    }
+    const myApp = new App();
+  </script>
 </body>
 
 </html>

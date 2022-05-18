@@ -4,6 +4,7 @@
   width: 100%;
   pointer-events: none;
   position: absolute;
+  z-index: 50;
   .nav-menu {
     display: flex;
     align-items: center;
@@ -1433,24 +1434,17 @@
     height: 200vh;
     background: transparent url("../img/asfalt-light.png") repeat 0 0;
     animation: bg-animation 0.2s infinite;
-    // opacity: 0.5;
     z-index: -10;
   }
   .preloader-page {
-    display: none;
+    // display: none;
   }
 }
 
-.test {
-  font-size: 25px;
-  line-height: 35px;
-  margin-bottom: 250px;
-}
 // --------- footer ----------
 .footer {
   position: relative;
-  padding-top: 100px;
-  margin-top: 50px;
+  margin-top: 200px;
   .footer__copy {
     position: relative;
     z-index: 120;
@@ -1460,7 +1454,95 @@
     color: #000;
     font-weight: 900;
     text-transform: uppercase;
-    b {
+    padding: 5px 0;
+  }
+  :root {
+    --wave: #fff;
+    --bg: #364c63;
+  }
+  .waves {
+    flex: 1;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 50%;
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      height: 15px;
+      width: 100%;
+      left: 0;
+      top: -2px;
+    }
+  }
+  .wave {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+    fill: #fff;
+  }
+  .wave:nth-of-type(1) {
+    --speed: 60;
+    --opacity: 0.3;
+    --height: 12;
+    --width: 320;
+    --lightness: 90;
+    --rise: 2;
+    opacity: 0;
+  }
+  .wave:nth-of-type(2) {
+    --speed: 45;
+    --opacity: 1;
+    --height: 6;
+    --width: 230;
+    --lightness: 95;
+    --rise: 5;
+    opacity: 0.6;
+  }
+  .wave:nth-of-type(3) {
+    --speed: 35;
+    --opacity: 1;
+    --height: 4;
+    --width: 160;
+    --lightness: 100;
+    --rise: 0;
+  }
+  .wave {
+    height: calc(var(--height, 0) * 1vh);
+    width: calc(var(--width, 0) * 1vw);
+    -webkit-animation: rise calc(var(--speed, 0) * 1.5s) infinite linear;
+    animation: rise calc(var(--speed, 0) * 1.5s) infinite linear;
+  }
+  @media (max-width: 480px) {
+    .wave {
+      height: calc(var(--height, 0) * 0.75vh);
+    }
+  }
+  .wave path {
+    fill: hsl(0, 0%, calc(var(--lightness, 0) * 1%));
+    -webkit-animation: wave calc(var(--speed, 0) * 1s) infinite linear;
+    animation: wave calc(var(--speed, 0) * 1s) infinite linear;
+  }
+  @-webkit-keyframes wave {
+    to {
+      transform: translate(-761px, 0);
+    }
+  }
+  @keyframes wave {
+    to {
+      transform: translate(-761px, 0);
+    }
+  }
+  @-webkit-keyframes rise {
+    50% {
+      transform: translate(0, calc(var(--rise) * -1%));
+    }
+  }
+  @keyframes rise {
+    50% {
+      transform: translate(0, calc(var(--rise) * -1%));
     }
   }
 }
@@ -1530,6 +1612,9 @@
     padding: 10px 24px;
     font-size: 14px;
     line-height: 16px;
+    &.btn-error {
+      background-color: rgb(95, 8, 8);
+    }
   }
 
   .contact__pattern {
@@ -1541,10 +1626,10 @@
     left: 50%;
     margin-left: -400px;
     margin-top: -400px;
-    // filter: drop-shadow(0px 0px 1px #fff);
-    z-index: -1;
+    filter: drop-shadow(0px 0px 1px #fff);
+    z-index: -110;
     * {
-      fill: rgba(#fff, 0.08);
+      fill: #000;
     }
   }
 
@@ -1598,7 +1683,7 @@
     height: 50%;
     position: absolute;
   }
-  .top-about__title1, 
+  .top-about__title1,
   .top-about__title2 {
     z-index: 10;
     position: absolute;
@@ -1625,94 +1710,80 @@
     right: 0;
     bottom: 0;
   }
-}
+  .line-wave {
+    pointer-events: none;
+    position: absolute;
+    width: 200%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    overflow: visible;
+    pointer-events: none;
+    transform: rotate(-30deg);
+    z-index: -1;
 
+    --move-period: 30s;
+    --scale-period: 25s;
+  }
+
+  .line-wave path {
+    transform-origin: center;
+    stroke-width: 1;
+    fill: transparent;
+  }
+
+  .line-wave:nth-child(1) {
+    left: -80%;
+    top: -50%;
+    transform: rotate(-60deg);
+  }
+  .line-wave:nth-child(2) {
+    left: -70%;
+    top: -50%;
+    transform: rotate(-70deg);
+  }
+  .line-wave:nth-child(3) {
+    left: -7%;
+    top: -50%;
+    transform: rotate(-120deg);
+    path {
+      stroke: rgba(#fff, 0.2);
+    }
+  }
+
+  .line-wave g {
+    animation: move-across 30s infinite linear;
+    path {
+      animation: scale-y calc(25s * 1.2) calc(25s * -0.53) infinite ease;
+      stroke: rgba(#fff, 0.1);
+    }
+  }
+
+  @keyframes scale-y {
+    0% {
+      transform: scaleY(20%);
+    }
+    50% {
+      transform: scaleY(-20%);
+    }
+    100% {
+      transform: scaleY(20%);
+    }
+  }
+  @keyframes move-across {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
 #islands {
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
   opacity: 0.3;
-}
-
-
-:root {
-  --wave: #fff;
-  --bg: #364c63;
-}
-.waves {
-  // background: var(--bg);
-  flex: 1;
-  width: 100vw;
-  position: relative;
-  // overflow: hidden;
-}
-.wave {
-  position: absolute;
-  bottom: -5%;
-  left: 0;
-  right: 0;
-  fill: #fff;
-}
-.wave:nth-of-type(1) {
-  --speed: 60;
-  --opacity: 0.3;
-  --height: 12;
-  --width: 320;
-  --lightness: 90;
-  --rise: 2;
-  opacity: 0;
-}
-.wave:nth-of-type(2) {
-  --speed: 45;
-  --opacity: 1;
-  --height: 6;
-  --width: 230;
-  --lightness: 95;
-  --rise: 5;
-  opacity: 0.6;
-}
-.wave:nth-of-type(3) {
-  --speed: 35;
-  --opacity: 1;
-  --height: 4;
-  --width: 160;
-  --lightness: 100;
-  --rise: 0;
-}
-.wave {
-  height: calc(var(--height, 0) * 1vh);
-  width: calc(var(--width, 0) * 1vw);
-  -webkit-animation: rise calc(var(--speed, 0) * 1.5s) infinite linear;
-  animation: rise calc(var(--speed, 0) * 1.5s) infinite linear;
-}
-@media (max-width: 480px) {
-  .wave {
-    height: calc(var(--height, 0) * 0.75vh);
-  }
-}
-.wave path {
-  fill: hsl(0, 0%, calc(var(--lightness, 0) * 1%));
-  -webkit-animation: wave calc(var(--speed, 0) * 1s) infinite linear;
-  animation: wave calc(var(--speed, 0) * 1s) infinite linear;
-}
-@-webkit-keyframes wave {
-  to {
-    transform: translate(-761px, 0);
-  }
-}
-@keyframes wave {
-  to {
-    transform: translate(-761px, 0);
-  }
-}
-@-webkit-keyframes rise {
-  50% {
-    transform: translate(0, calc(var(--rise) * -1%));
-  }
-}
-@keyframes rise {
-  50% {
-    transform: translate(0, calc(var(--rise) * -1%));
-  }
+  pointer-events: none;
 }

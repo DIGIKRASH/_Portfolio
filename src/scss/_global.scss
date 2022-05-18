@@ -3,7 +3,6 @@
 // @@include('./plugins/round-text.js');
 // @@include('./plugins/scene-background.js');
 
-
 // @@include('../../node_modules/locomotive-scroll/dist/locomotive-scroll.min.js'); -->
 
 // @import url("https://fonts.googleapis.com/css?family=Raleway:300,900&display=swap");
@@ -21,7 +20,7 @@ html {
   overflow-x: hidden;
   box-sizing: border-box;
   &.hidden {
-    overflow-y: hidden;
+    // overflow-y: hidden;
   }
 }
 *,
@@ -86,12 +85,14 @@ a {
     &::placeholder {
       color: #fff;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       border: 1px solid rgba(#fff, 0.45);
     }
   }
   &.input-error {
-    input {
+    input,
+    textarea {
       border: 1px solid rgb(95, 8, 8);
     }
   }
@@ -138,9 +139,6 @@ a {
   background: rgba($main, 0.6) !important;
 }
 
-
-
-
 // Scrollbar
 ::-webkit-scrollbar {
   display: none;
@@ -169,8 +167,8 @@ html.has-scroll-smooth {
   opacity: 0;
   transition: transform 0.3s, opacity 0.3s;
   &:hover {
-      transform: none;
-      opacity: 1;
+    transform: none;
+    opacity: 1;
   }
 }
 .c-scrollbar_thumb {
@@ -186,7 +184,7 @@ html.has-scroll-smooth {
 }
 .c-scrollbar:hover {
   .c-scrollbar_thumb {
-      cursor: grab;
+    cursor: grab;
   }
 }
 .c-scrollbar_thumb:hover {
