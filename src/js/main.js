@@ -330,7 +330,6 @@ $(document).on('click', '.projects__img', function () {
 
 
 
-
 $(document).ready(function () {
   const LANDING = {};
   LANDING.intro = document.querySelector(".preloader-page");
