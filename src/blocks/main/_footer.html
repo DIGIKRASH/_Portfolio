@@ -1,43 +1,24 @@
 <!-- footer
 ======================================================= -->
 <footer class="footer" data-scroll-section>
-    <div class="container">
-        <p class="footer__copy">Layout creator <b>Dmitriy Bozhko</b></p>
-    </div>
-    <div class="waves">
-        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 52.917" preserveAspectRatio="none">
-            <defs>
-                <path id="wave" d="M0 0c22.863 0 40.637 25.93 63.5 25.93S104.137 0 127 0s40.637 25.93 63.5 25.93S231.137 0 254 0s40.637 25.93 63.5 25.93S358.137 0 381 0s40.637 25.93 63.5 25.93S485.137 0 508 0s40.637 25.93 63.5 25.93S612.137 0 635 0s40.637 25.93 63.5 25.93S739.137 0 762 0v52.917H0z" fill="purple"></path>
-            </defs>
-            <g>
-                <use href="#wave"></use>
-            </g>
-            <g transform="translate(761 0)">
-                <use href="#wave"></use>
-            </g>
-        </svg>
-        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 52.917" preserveAspectRatio="none">
-            <defs>
-                <path id="wave" d="M0 0c22.863 0 40.637 25.93 63.5 25.93S104.137 0 127 0s40.637 25.93 63.5 25.93S231.137 0 254 0s40.637 25.93 63.5 25.93S358.137 0 381 0s40.637 25.93 63.5 25.93S485.137 0 508 0s40.637 25.93 63.5 25.93S612.137 0 635 0s40.637 25.93 63.5 25.93S739.137 0 762 0v52.917H0z" fill="purple"></path>
-            </defs>
-            <g>
-                <use href="#wave"></use>
-            </g>
-            <g transform="translate(761 0)">
-                <use href="#wave"></use>
-            </g>
-        </svg>
-        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 52.917" preserveAspectRatio="none">
-            <defs>
-                <path id="wave" d="M0 0c22.863 0 40.637 25.93 63.5 25.93S104.137 0 127 0s40.637 25.93 63.5 25.93S231.137 0 254 0s40.637 25.93 63.5 25.93S358.137 0 381 0s40.637 25.93 63.5 25.93S485.137 0 508 0s40.637 25.93 63.5 25.93S612.137 0 635 0s40.637 25.93 63.5 25.93S739.137 0 762 0v52.917H0z" fill="purple"></path>
-            </defs>
-            <g>
-                <use href="#wave"></use>
-            </g>
-            <g transform="translate(761 0)">
-                <use href="#wave"></use>
-            </g>
-        </svg>
-    </div>
+    <div class="gooey-animations"></div>
+    <h1>Layout creator <span>Dmitriy Bozhko</span></h1>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" hidden>
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 15 -7" result="goo" />
+                <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+        </defs>
+    </svg>
+    <svg viewbox="0 0 1440 328" width="100vw" class="footer-bg">
+        <defs>
+            <clipPath id="wave" clipPathUnits="objectBoundingBox" transform="scale(0.00069444444, 0.00304878048)">
+                <path d="M504.452 27.7002C163.193 -42.9551 25.9595 38.071 0 87.4161V328H1440V27.7002C1270.34 57.14 845.711 98.3556 504.452 27.7002Z" />
+            </clipPath>
+        </defs>
+    </svg>
 </footer>
 <!-- footer End -->

@@ -73,7 +73,7 @@
     @@include('./blocks/main/_js.html')
 
     <!-- Libraries -->
-
+    <script src="./locomotive-scroll.min.js"></script>
 
     <!-- preloader percents -->
     <script>
@@ -92,6 +92,35 @@
         };
 
         runPreloader();
+    </script>
+    <!-- Locomotive Scroll -->
+    <script>
+        // --- Locomotive Scroll (Smoth)
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+            smoothMobile: true,
+        });
+        scroll.destroy();
+        document.addEventListener("DOMContentLoaded", function (event) {
+            window.setTimeout(function () {
+                scroll.init();
+            }, 5000);
+        });
+       
+        var a = {
+            0: function () {
+                scroll.stop();
+            },
+
+            1: function () {
+                scroll.start();
+            }
+        }, b = -1;
+
+        $('.menu-diamond').click(function () {
+            a[++b % 2]()
+        })
     </script>
     <!-- intro -->
     <script>

@@ -64,8 +64,14 @@
       <div class="container">
         <div class="top-about__inner">
           <div class="top-about__titel">
-            <h1 class="top-about__title1"><span>the highest</span>pleasure</h1>
-            <h1 class="top-about__title2"><span>is</span>Illusion</h1>
+            <h1 class="top-about__title1">
+              <span><b>the highest</b></span>
+              <span><b>pleasure</b></span>
+            </h1>
+            <h1 class="top-about__title2">
+              <span><b>is</b></span>
+              <span><b>Illusion</b></span>
+            </h1>
           </div>
         </div>
         <div id="containerIslands">
@@ -101,11 +107,68 @@
   @@include('./blocks/main/_js.html')
 
   <!-- Libraries -->
+  <script src="./locomotive-scroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
 
   <!-- fps -->
   <script>
     javascript: (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
+  </script>
+  <!-- preloader -->
+  <script>
+    $(document).ready(function () {
+      const LANDING = {};
+      LANDING.intro = document.querySelector(".preloader-page");
+      LANDING.path = LANDING.intro.querySelector("path");
+
+      const svgAnimation = () => {
+        console.log("Animation");
+
+        anime({
+          targets: LANDING.intro,
+          duration: 2000,
+          easing: "easeInOutSine",
+          translateY: "-200vh"
+        });
+
+        anime({
+          targets: LANDING.path,
+          duration: 1500,
+          easing: "easeInOutSine",
+          d: LANDING.path.getAttribute("pathdata:id")
+        });
+      };
+      svgAnimation();
+    })
+  </script>
+  <!-- Locomotive Scroll -->
+  <script>
+    // --- Locomotive Scroll (Smoth)
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      smoothMobile: true,
+    });
+    scroll.destroy();
+    document.addEventListener("DOMContentLoaded", function (event) {
+      window.setTimeout(function () {
+        scroll.init();
+      }, 1500);
+    });
+
+    var a = {
+      0: function () {
+        scroll.stop();
+      },
+
+      1: function () {
+        scroll.start();
+      }
+    }, b = -1;
+
+    $('.menu-diamond').click(function () {
+      a[++b % 2]()
+    })
   </script>
   <!-- first screen texture -->
   <script id="fragment" type="x-shader/x-fragment">

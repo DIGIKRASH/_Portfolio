@@ -30,14 +30,15 @@
                 document.documentElement.classList.remove('loading');
             }, 500);
             window.setTimeout(function () {
+                document.body.classList.remove('hidden');
                 document.documentElement.classList.remove('hidden');
-            }, 1500);
+            }, 5000);
         }
     </script>
 
 </head>
 
-<body class="contact" data-barba="wrapper" data-scroll-container>
+<body class="contact hidden" data-barba="wrapper" data-scroll-container>
 
     @@include('./blocks/_preloader-page.html')
 
@@ -62,10 +63,10 @@
         <section class="contact-form" data-scroll-section>
             <div class="container">
                 <div class="contact-form__inner">
-                    <div class="contact-form__titel">
+                    <div class="contact-form__titel" data-scroll>
                         <h2 class="contact-form__title">
                             <span>Связаться</span>
-                            <span>с мной</span>
+                            <span>со мной</span>
                         </h2>
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="contact__pattern">
                             <defs>
@@ -92,20 +93,43 @@
                             <rect x="200" y="200" mask="url(#maska)" fill="url(#MyGradient)" width="400" height="400">
                         </svg>
                     </div>
-                    <div class="contact-form__content">
+                    <div class="contact-form__content" data-scroll>
                         <form id="contact__form" class="contact__form">
                             <div class="contact__form-inputs">
                                 <div class="contact__form-input input-block">
                                     <input type="text" id="contact__form-name" name="contact__form-name" class="input" placeholder="Имя:">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
                                 </div>
                                 <div class="contact__form-input input-block">
-                                    <input type="text" id="contact__form-email" name="contact__form-email" class="input">
+                                    <input type="text" id="contact__form-email" name="contact__form-email" class="input" placeholder="Email:">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
                                 </div>
                             </div>
                             <div class="contact__form-message input-block">
                                 <textarea name="contact__form-message" id="contact__form-message" class="input" placeholder="Сообщение:"></textarea>
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
                             </div>
-                            <button type="submit" class="contact__form-button" id="contact__form-button">Отправить</button>
+                            <button type="submit" class="glitch-btn contact__form-button" id="contact__form-button" data-hover="Send">
+                                <span class="static">Send</span>
+                                <span class="loading">
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                </span>
+                                <span class="loaded">
+                                    <svg width="20" height="20" class="check">
+                                        <use xlink:href="./img/icons/icons.svg#check"/>
+                                    </svg>
+                                </span>
+                            </button>
+
+                            
                         </form>
                     </div>
                 </div>
@@ -113,18 +137,117 @@
         </section>
         <!-- contact-form end -->
 
+
+        <!-- contact-info
+        ======================================================= -->
+        <section class="contact-info" data-scroll-section>
+            <div class="container">
+                <div class="contact-info__inner">
+                    <div class="contact-info__lists">
+                        <ul class="contact-info__list contact-info__list1" data-scroll>
+                            <h5 class="contact-info__list-title">Social</h5>
+                            <li class="contact-info__list-item">
+                                <a href="#" data-hover="Telegram">Telegram</a>
+                            </li>
+                            <li class="contact-info__list-item">
+                                <a href="#" data-hover="vk">Vk</a>
+                            </li>
+                            <li class="contact-info__list-item">
+                                <a href="#" data-hover="Facebook">Facebook</a>
+                            </li>
+                            <li class="contact-info__list-item">
+                                <a href="#" data-hover="Email">Email</a>
+                            </li>
+                        </ul>
+                        <ul class="contact-info__list" data-scroll>
+                            <h5 class="contact-info__list-title">Another</h5>
+                            <li class="contact-info__list-item">
+                                <a href="#" data-hover="Github">Github</a>
+                            </li>
+                            <li class="contact-info__list-item">
+                                <a href="#" data-hover="Codepen">Codepen</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" hidden>
+                        <defs>
+                            <filter id="gooey">
+                                <!-- in="sourceGraphic" -->
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+                                <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+                            </filter>
+                        </defs>
+                    </svg>
+                    <div class="contact-info__btn--wrapper">
+                        <a href="#" class="gooey-btn contact-info__btn" data-scroll>
+                            Old Version
+                            <span class="bubbles">
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-info__after">
+                    <a href="index.html" class="logo contact-info__logo" data-scroll>
+                        <p><span>D</span>mitriy</p>
+                        <p><span>B</span>ozhko</p>
+                    </a>
+                    <p class="contact-info__text" data-scroll>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio consequuntur aliquam explicabo dolorem. Hic, autem!</p>
+                </div>
+            </div>
+        </section>
+        <!-- contact-info end -->
+
+
         @@include('./blocks/main/_footer.html')
 
     </main>
 
 
-    
+
     <!-- Global Scripts -->
     @@include('./blocks/main/_js.html')
-    
+
     <!-- Libraries -->
+    <script src="./locomotive-scroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 
+    <!-- тестовый submit effect при клике -->
+    <script>
+        $('.contact__form-button').click(function () {
+            $(this).addClass('loading1');
+            setTimeout(() => {
+                $(this).removeClass('loading1');
+                $(this).addClass('loaded1');
+                setTimeout(() => {
+                    $(this).removeClass('loaded1');
+                }, 1500);
+            }, 2500);
+        });
+    </script>
+    <!-- Добавление класса при фокусе у input -->
+    <script>
+        $('.contact__form-button').mouseenter(function () {
+            $('.error').css("transition-delay", "0.1s");
+            $('.error').css("opacity", 1);
+        });
+        $('.contact__form-button').mouseleave(function () {
+            $('.error').css("transition-delay", "0.7s");
+            $('.error').css("opacity", 0);
+        });
+    </script>
     <!-- preloader -->
     <script>
         $(document).ready(function () {
@@ -150,6 +273,35 @@
                 });
             };
             svgAnimation();
+        })
+    </script>
+    <!-- Locomotive Scroll -->
+    <script>
+        // --- Locomotive Scroll (Smoth)
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+            smoothMobile: true,
+        });
+        scroll.destroy();
+        document.addEventListener("DOMContentLoaded", function (event) {
+            window.setTimeout(function () {
+                scroll.init();
+            }, 700);
+        });
+
+        var a = {
+            0: function () {
+                scroll.stop();
+            },
+
+            1: function () {
+                scroll.start();
+            }
+        }, b = -1;
+
+        $('.menu-diamond').click(function () {
+            a[++b % 2]()
         })
     </script>
     <!-- blob animation -->
@@ -193,7 +345,8 @@
 
                 setTimeout(function () {
                     $('.error').remove();
-                }, 5000);
+                    $(".input-block").removeClass('input-error');
+                }, 10000);
 
                 var errorForm = false;
 

@@ -20,7 +20,6 @@
 
 
 // Plugins ----------------
-@@include('../../node_modules/locomotive-scroll/dist/locomotive-scroll.min.js');
 @@include('./plugins/anime.min.js');
 
 

@@ -20,7 +20,7 @@ html {
   overflow-x: hidden;
   box-sizing: border-box;
   &.hidden {
-    // overflow-y: hidden;
+    overflow-y: hidden;
   }
 }
 *,
@@ -38,6 +38,9 @@ body {
   line-height: 18px;
   color: #fff;
   background-color: #000;
+  &.hidden {
+    overflow: hidden;
+  }
 }
 a {
   color: #fff;
@@ -78,23 +81,73 @@ a {
     color: #fff;
     width: 100%;
     height: 100%;
-    background: rgba(#000, 0.75);
+    background: transparent;
     padding: 11px 16px;
-    border: 1px solid transparent;
+    border-bottom: 1px solid #fff;
     transition: 0.2s;
     &::placeholder {
-      color: #fff;
+      color: rgba(#fff, 0.75);
+      // font-family: $f2;
+      font-size: 14px;
+      font-weight: 100;
     }
-    &:hover,
-    &:focus {
-      border: 1px solid rgba(#fff, 0.45);
+    &:hover {
+      &::placeholder {
+        color: rgba(#fff, 1);
+      }
+      border-color: rgba(#fff, 1);
     }
   }
   &.input-error {
     input,
     textarea {
-      border: 1px solid rgb(95, 8, 8);
+      border-bottom: 1px solid rgb(95, 8, 8) !important;
     }
+  }
+
+  .input ~ .focus-border:before,
+  .input ~ .focus-border:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0.5px;
+    background-color: rgba(#fff, 0.7);
+    transition: 0.3s;
+  }
+  .input ~ .focus-border:after {
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 0;
+  }
+  .input ~ .focus-border i:before,
+  .input ~ .focus-border i:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.5px;
+    height: 0;
+    background-color: rgba(#fff, 0.7);
+    transition: 0.4s;
+  }
+  .input ~ .focus-border i:after {
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 0;
+  }
+  .input:focus ~ .focus-border:before,
+  .input:focus ~ .focus-border:after {
+    width: 100%;
+    transition: 0.3s;
+  }
+  .input:focus ~ .focus-border i:before,
+  .input:focus ~ .focus-border i:after {
+    height: 100%;
+    transition: 0.4s;
   }
 }
 .error {
@@ -107,6 +160,7 @@ a {
   padding: 0px 5px;
   font-size: 10px;
   line-height: 14px;
+  transition: 0.5s;
 }
 
 .wrapper {
@@ -189,4 +243,258 @@ html.has-scroll-smooth {
 }
 .c-scrollbar_thumb:hover {
   width: 7px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: $f2;
+  cursor: pointer;
+  transition: 0.7s;
+  span {
+    letter-spacing: -23px;
+    line-height: 75px;
+    font-size: 75px;
+    font-weight: 100;
+    text-transform: uppercase;
+    padding-right: 23px;
+    color: #fff;
+  }
+  p {
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(#fff, 0);
+  }
+  p {
+    text-align: center;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, white, white, white);
+    background-size: 65% 100%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-position-x: -25%;
+    transition: 1s ease-in-out;
+  }
+  p:nth-child(2) {
+    background-size: 60% 100%;
+  }
+  &:hover {
+    p {
+      background-size: 100% 150%;
+    }
+  }
+  p:nth-child(2) {
+    margin-left: -55px;
+    margin-top: 25px;
+  }
+}
+
+.gooey-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  color: #0c1016;
+  filter: url("#gooey");
+  position: relative;
+  background-color: #fff;
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:focus {
+    outline: none;
+  }
+  .bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .bubbles .bubble {
+    background-color: #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: -1;
+  }
+  .bubbles .bubble:nth-child(1) {
+    left: 28px;
+    width: 25px;
+    height: 25px;
+    animation: move-1 3.02s infinite;
+    animation-delay: 0.2s;
+  }
+  .bubbles .bubble:nth-child(2) {
+    left: 83px;
+    width: 25px;
+    height: 25px;
+    animation: move-2 3.04s infinite;
+    animation-delay: 0.4s;
+  }
+  .bubbles .bubble:nth-child(3) {
+    left: 77px;
+    width: 25px;
+    height: 25px;
+    animation: move-3 3.06s infinite;
+    animation-delay: 0.6s;
+  }
+  .bubbles .bubble:nth-child(4) {
+    left: 42px;
+    width: 25px;
+    height: 25px;
+    animation: move-4 3.08s infinite;
+    animation-delay: 0.8s;
+  }
+  .bubbles .bubble:nth-child(5) {
+    left: 28px;
+    width: 25px;
+    height: 25px;
+    animation: move-5 3.1s infinite;
+    animation-delay: 1s;
+  }
+  .bubbles .bubble:nth-child(6) {
+    left: 45px;
+    width: 25px;
+    height: 25px;
+    animation: move-6 3.12s infinite;
+    animation-delay: 1.2s;
+  }
+  .bubbles .bubble:nth-child(7) {
+    left: 26px;
+    width: 25px;
+    height: 25px;
+    animation: move-7 3.14s infinite;
+    animation-delay: 1.4s;
+  }
+  .bubbles .bubble:nth-child(8) {
+    left: 66px;
+    width: 25px;
+    height: 25px;
+    animation: move-8 3.16s infinite;
+    animation-delay: 1.6s;
+  }
+  .bubbles .bubble:nth-child(9) {
+    left: 72px;
+    width: 25px;
+    height: 25px;
+    animation: move-9 3.18s infinite;
+    animation-delay: 1.8s;
+  }
+  .bubbles .bubble:nth-child(10) {
+    left: 21px;
+    width: 25px;
+    height: 25px;
+    animation: move-10 3.2s infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes move-1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -102px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -51px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-4 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -75px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-5 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -122px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-6 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -62px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-7 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -121px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-8 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -117px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-9 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -98px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
+  @keyframes move-10 {
+    0% {
+      transform: translate(0, 0);
+    }
+    99% {
+      transform: translate(0, -129px);
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+  }
 }

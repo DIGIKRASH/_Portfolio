@@ -124,16 +124,6 @@ function contentAnimation(container) {
 
 
 
-// --- Locomotive Scroll (Smoth)
-const scroll = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  smoothMobile: true,
-});
-scroll.destroy();
-document.addEventListener("DOMContentLoaded", function (event) {
-  scroll.init();
-});
 
 
 
@@ -163,3 +153,19 @@ if ($(window).scrollTop() > 10) {
   $('.header').removeClass('header-mini');
 }
 
+
+function generateBalls() {
+  for (var i = 0; i < Math.floor(window.innerWidth/30); i++) {
+    $(".gooey-animations").append(`
+    <div class="ball"></div>
+  `);
+    var colors = ['#d8d8d8'];
+    $(".ball").eq(i).css({"bottom":"-100%","left":Math.random()*window.innerWidth-100,"animation-delay":Math.random()*5+"s","transform":"translateY("+Math.random()*10+"px)","background-color":colors[i%2]});
+  }
+}
+generateBalls();
+
+window.addEventListener('resize', function(e) {
+  $(".gooey-animations .ball").remove();
+  generateBalls();
+})
