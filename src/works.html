@@ -28,123 +28,135 @@
 
         <!-- projects
         ======================================================= -->
-        <!-- <section class="projects swiper">
-            <div class="swiper-wrapper">
-                <div class="projects__item swiper-slide">
-                    <div class="projects__img">
-                        <img src="./img/57.jpg" width="" height="" loading="lazy" alt="">
-                        <video class="projects__video" id="projects__video" preload="auto" no-controls loop playsinline muted>
-                            <source src="./loader-video.mp4" type='video/mp4' />
-                        </video>
-                    </div>
-                    <div class="projects__content">
-                        <div class="projects__wave"></div>
-                       
-                        <h2 class="projects__title">
-                            <span>Clothing</span>
-                            <span>Store2</span>
-                        </h2>
-                        <p class="projects__text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled </p>
-                        <div class="projects__num">01</div>
-                        <h6 class="projects__vertical">Lorem Ipsum has</h6>
-                        <div class="projects__patterns">
-                            <svg width="20" height="20" class="projects__pattern">
-                                <use xlink:href="./img/icons/icons.svg#leaves1" />
-                            </svg>
-                            <svg width="20" height="20" class="projects__pattern">
-                                <use xlink:href="./img/icons/icons.svg#leaves2" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="projects__item swiper-slide">
-                    <div class="projects__img">
-                        <img src="./img/project1.jpg" width="" height="" loading="lazy" alt="">
-                    </div>
-                    <div class="projects__content">
-                        <div class="projects__wave"></div>
-                     
-                        <h2 class="projects__title">
-                            <span>Clothing</span>
-                            <span>Store3</span>
-                        </h2>
-                        <p class="projects__text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled </p>
-                        <div class="projects__num">01</div>
-                        <h6 class="projects__vertical">Lorem Ipsum has</h6>
-                        <div class="projects__patterns">
-                            <svg width="20" height="20" class="projects__pattern">
-                                <use xlink:href="./img/icons/icons.svg#leaves1" />
-                            </svg>
-                            <svg width="20" height="20" class="projects__pattern">
-                                <use xlink:href="./img/icons/icons.svg#leaves2" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-pagination"></div>
-
-            <div class="swiper-button swiper-button-prev"></div>
-            <div class="swiper-button swiper-button-next"></div>
-        </section> -->
-        <!-- projects end -->
-
-
-        <div id="slider">
+        <section id="slider" class="projects">
 
             <div class="slider-inner">
                 <div id="slider-content">
-                    <div class="meta">Species</div>
+                    <!-- <div class="meta">Species</div> -->
 
-                    <h2 id="slide-title">Amur <br>Leopard</h2>
+                    <div class="projects__title">
+                        <h2 id="slide-title">
+                            <span>Clothing</span>
+                            <span>Store</span>
+                        </h2>
 
-                    <span data-slide-title="0">Amur <br>Leopard</span>
-                    <span data-slide-title="1">Asiatic <br>Lion</span>
-                    <span data-slide-title="2">Siberian <br>Tiger</span>
-                    <span data-slide-title="3">Brown <br>Bear</span>
+                        <div class="slide-hidden" data-slide-title="0">
+                            <span>Clothing</span>
+                            <span>Store</span>
+                        </div>
+                        <div class="slide-hidden" data-slide-title="1">
+                            <span>Clothing2</span>
+                            <span>Store2</span>
+                        </div>
+                        <div class="slide-hidden" data-slide-title="2">
+                            <span>Clothing2</span>
+                            <span>Store2</span>
+                        </div>
+                        <div class="slide-hidden" data-slide-title="3">
+                            <span>Clothing2</span>
+                            <span>Store2</span>
+                        </div>
+                    </div>
 
-                    <div class="meta">Status</div>
+                    <div class="projects__text">
+                        <p id="slider-text">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                        </p>
 
-                    <div id="slide-status">Critically Endangered</div>
+                        <div class="slide-hidden" data-slide-text="0">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                        </div>
+                        <div class="slide-hidden" data-slide-text="1">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                        </div>
+                        <div class="slide-hidden" data-slide-text="2">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                        </div>
+                        <div class="slide-hidden" data-slide-text="3">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                        </div>
+                    </div>
+
+                    <div class="projects__num">01</div>
+                    <!-- <div class="meta">Status</div> -->
+
+                    <!-- <div id="slide-status">Critically Endangered</div>
 
                     <span data-slide-status="0">Critically Endangered</span>
                     <span data-slide-status="1">Endangered</span>
                     <span data-slide-status="2">Endangered</span>
-                    <span data-slide-status="3">Least Concern</span>
+                    <span data-slide-status="3">Least Concern</span> -->
 
-                    <svg width="20" height="20" class="projects__pattern">
+                    <div class="slider__videos">
+                        <video class="slide__video" data-slide-video="0" preload="auto" autoplay no-controls loop playsinline muted>
+                            <source src="./loader-video.mp4" type='video/mp4' />
+                        </video>
+                        <video class="slide__video" data-slide-video="1" preload="auto" autoplay no-controls loop playsinline muted>
+                            <source src="./video2.mp4" type='video/mp4' />
+                        </video>
+                        <video class="slide__video" data-slide-video="2" preload="auto" autoplay no-controls loop playsinline muted>
+                            <source src="./loader-video.mp4" type='video/mp4' />
+                        </video>
+                        <video class="slide__video" data-slide-video="3" preload="auto" autoplay no-controls loop playsinline muted>
+                            <source src="./video2.mp4" type='video/mp4' />
+                        </video>
+                    </div>
+
+
+                    <svg width="20" height="20" class="projects__pattern1">
                         <use xlink:href="./img/icons/icons.svg#leaves1" />
                     </svg>
-                    <!-- <p data-slide-status="1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nulla molestiae, ex dolores atque numquam aut eum ea repellendus nesciunt. Debitis praesentium fugiat quam voluptatibus sit? Quos porro iure temporibus?</p> -->
+
+                    <svg width="20" height="20" class="projects__pattern2">
+                        <use xlink:href="./img/icons/icons.svg#leaves2" />
+                    </svg>
+
+                    <div class="projects__pattern3"></div>
+                    
+                    <p class="projects__vertical">Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <div class="projects__images">
+                    <img src="img/project2.jpg" />
+                    <img src="img/project1.jpg" />
+                    <img src="img/hypercritical__img.jpg" />
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
                 </div>
             </div>
 
-            <img src="img/project1.jpg" />
-            <img src="img/57.jpg" />
-            <img src="img/hypercritical__img.jpg" />
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
 
-            <div id="pagination">
+            <div id="pagination" class="projects__pagination">
                 <button class="active" data-slide="0"></button>
                 <button data-slide="1"></button>
                 <button data-slide="2"></button>
                 <button data-slide="3"></button>
             </div>
 
-        </div>
+            <div class="projects__arrows">
+                <div class="projects__arrow btn-right">
+                    <svg width="20" height="20">
+                        <use xlink:href="./img/icons/icons.svg#back" />
+                    </svg>
+                </div>
+                <div class="projects__arrow btn-left">
+                    <svg width="20" height="20">
+                        <use xlink:href="./img/icons/icons.svg#next" />
+                    </svg>
+                </div>
+            </div>
 
-        <img src="img/project1.jpg" class="test-img">
+        </section>
+        <!-- projects end -->
 
     </main>
 
-    <!-- GAlobal Scripts -->
+    <!-- Global Scripts -->
     @@include('./blocks/main/_js.html')
 
     <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-    
+
     <!-- preloader -->
     <script>
         $(document).ready(function () {
@@ -174,6 +186,7 @@
     </script>
     <!-- slider -->
     <script>
+
         const displacementSlider = function (opts) {
 
             let vertex = `
@@ -223,7 +236,7 @@
             let parent = opts.parent;
             // let renderWidth = window.innerWidth * 0.6;
             let renderWidth = window.innerWidth * 0.6;
-            let renderHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            let renderHeight = window.innerHeight;
             // let renderWidth = document.body.clientWidth * 0.60;
             // let renderHeight = document.body.clientHeight - 30;
             // let renderHeight = window.innerHeight;
@@ -285,13 +298,14 @@
             });
 
             let geometry = new THREE.PlaneBufferGeometry(
-                parent.offsetWidth,
-                parent.offsetHeight,
+                renderW,
+                renderH,
                 1
             );
             let object = new THREE.Mesh(geometry, mat);
             object.position.set(0, 0, 0);
             scene.add(object);
+
 
             let addEvents = function () {
 
@@ -329,6 +343,10 @@
                             let slideStatusEl = document.getElementById('slide-status');
                             let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
                             let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
+
+
+                            $('.slide__video').css('display', 'none');
+                            $(`.slide__video[data-slide-video="${slideId}"]`).css('display', 'block');
 
                             TweenLite.fromTo(slideTitleEl, 0.5,
                                 {
@@ -375,6 +393,199 @@
 
                 });
 
+                // var scrollPos = 0;
+                // $(window).scroll(function () {
+                //     var st = $(this).scrollTop();
+                //     if (st > scrollPos) {
+                //         console.log('вниз')
+                //         $("body").css("background-color", "red");
+
+
+
+                //     } else {
+                //         console.log('вверх')
+                //         $("body").css("background-color", "yellow");
+                //     }
+                //     scrollPos = st;
+                // });
+
+                $('.btn-left').click(function () {
+
+
+                    let numberActive = parseInt($('#pagination').find('.active').attr('data-slide')) + 1;
+
+                    let slidesLenght = parseInt($('#pagination button').length)
+
+                    if (numberActive == slidesLenght) {
+                        numberActive = 0;
+                    }
+
+                    if (!isAnimating) {
+
+                        isAnimating = true;
+
+                        document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
+
+                        $('#pagination').find(`button:nth-child(${numberActive + 1})`).addClass('active')
+                        // document.getElementById('pagination').querySelectorAll('button')[numberActive + 1].className = 'active';
+                        // this.className = 'active';
+
+                        console.log();
+
+                        let slideId = numberActive;
+
+                        mat.uniforms.nextImage.value = sliderImages[slideId];
+                        mat.uniforms.nextImage.needsUpdate = true;
+
+                        TweenLite.to(mat.uniforms.dispFactor, 1, {
+                            value: 1,
+                            ease: 'Expo.easeInOut',
+                            onComplete: function () {
+                                mat.uniforms.currentImage.value = sliderImages[slideId];
+                                mat.uniforms.currentImage.needsUpdate = true;
+                                mat.uniforms.dispFactor.value = 0.0;
+                                isAnimating = false;
+                            }
+                        });
+
+                        let slideTitleEl = document.getElementById('slide-title');
+                        let slideStatusEl = document.getElementById('slide-status');
+                        let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
+                        let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
+
+                        TweenLite.fromTo(slideTitleEl, 0.5,
+                            {
+                                autoAlpha: 1,
+                                y: 0
+                            },
+                            {
+                                autoAlpha: 0,
+                                y: 20,
+                                ease: 'Expo.easeIn',
+                                onComplete: function () {
+                                    slideTitleEl.innerHTML = nextSlideTitle;
+
+                                    TweenLite.to(slideTitleEl, 0.5, {
+                                        autoAlpha: 1,
+                                        y: 0,
+                                    })
+                                }
+                            });
+
+                        TweenLite.fromTo(slideStatusEl, 0.5,
+                            {
+                                autoAlpha: 1,
+                                y: 0
+                            },
+                            {
+                                autoAlpha: 0,
+                                y: 20,
+                                ease: 'Expo.easeIn',
+                                onComplete: function () {
+                                    slideStatusEl.innerHTML = nextSlideStatus;
+
+                                    TweenLite.to(slideStatusEl, 0.5, {
+                                        autoAlpha: 1,
+                                        y: 0,
+                                        delay: 0.1,
+                                    })
+                                }
+                            });
+
+                    }
+
+
+                });
+
+                $('.btn-right').click(function () {
+
+                    let numberActive = parseInt($('#pagination').find('.active').attr('data-slide')) - 1;
+
+                    let slidesLenght = parseInt($('#pagination button').length)
+                    // console.log(slidesLenght)
+
+                    if (numberActive < 0) {
+                        numberActive = slidesLenght - 1;
+                    }
+
+                    if (!isAnimating) {
+
+                        isAnimating = true;
+
+                        document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
+
+                        $('#pagination').find(`button:nth-child(${numberActive + 1})`).addClass('active')
+                        // document.getElementById('pagination').querySelectorAll('button')[numberActive + 1].className = 'active';
+                        // this.className = 'active';
+
+                        console.log();
+
+                        let slideId = numberActive;
+
+                        mat.uniforms.nextImage.value = sliderImages[slideId];
+                        mat.uniforms.nextImage.needsUpdate = true;
+
+                        TweenLite.to(mat.uniforms.dispFactor, 1, {
+                            value: 1,
+                            ease: 'Expo.easeInOut',
+                            onComplete: function () {
+                                mat.uniforms.currentImage.value = sliderImages[slideId];
+                                mat.uniforms.currentImage.needsUpdate = true;
+                                mat.uniforms.dispFactor.value = 0.0;
+                                isAnimating = false;
+                            }
+                        });
+
+                        let slideTitleEl = document.getElementById('slide-title');
+                        let slideStatusEl = document.getElementById('slide-status');
+                        let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
+                        let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
+
+                        TweenLite.fromTo(slideTitleEl, 0.5,
+                            {
+                                autoAlpha: 1,
+                                y: 0
+                            },
+                            {
+                                autoAlpha: 0,
+                                y: 20,
+                                ease: 'Expo.easeIn',
+                                onComplete: function () {
+                                    slideTitleEl.innerHTML = nextSlideTitle;
+
+                                    TweenLite.to(slideTitleEl, 0.5, {
+                                        autoAlpha: 1,
+                                        y: 0,
+                                    })
+                                }
+                            });
+
+                        TweenLite.fromTo(slideStatusEl, 0.5,
+                            {
+                                autoAlpha: 1,
+                                y: 0
+                            },
+                            {
+                                autoAlpha: 0,
+                                y: 20,
+                                ease: 'Expo.easeIn',
+                                onComplete: function () {
+                                    slideStatusEl.innerHTML = nextSlideStatus;
+
+                                    TweenLite.to(slideStatusEl, 0.5, {
+                                        autoAlpha: 1,
+                                        y: 0,
+                                        delay: 0.1,
+                                    })
+                                }
+                            });
+
+                    }
+
+
+                });
+
+
             };
 
             addEvents();
@@ -390,6 +601,8 @@
             };
             animate();
         };
+
+
 
 
         const el = document.getElementById('slider');
