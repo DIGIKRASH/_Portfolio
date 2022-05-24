@@ -32,7 +32,6 @@
 
             <div class="slider-inner">
                 <div id="slider-content">
-                    <!-- <div class="meta">Species</div> -->
 
                     <div class="projects__title">
                         <h2 id="slide-title">
@@ -59,7 +58,7 @@
                     </div>
 
                     <div class="projects__text">
-                        <p id="slider-text">
+                        <p id="slide-text">
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
                         </p>
 
@@ -77,30 +76,78 @@
                         </div>
                     </div>
 
-                    <div class="projects__num">01</div>
-                    <!-- <div class="meta">Status</div> -->
+                    <div class="projects__num">
+                        <div id="slide-num">01</div>
 
-                    <!-- <div id="slide-status">Critically Endangered</div>
-
-                    <span data-slide-status="0">Critically Endangered</span>
-                    <span data-slide-status="1">Endangered</span>
-                    <span data-slide-status="2">Endangered</span>
-                    <span data-slide-status="3">Least Concern</span> -->
-
-                    <div class="slider__videos">
-                        <video class="slide__video" data-slide-video="0" preload="auto" autoplay no-controls loop playsinline muted>
-                            <source src="./loader-video.mp4" type='video/mp4' />
-                        </video>
-                        <video class="slide__video" data-slide-video="1" preload="auto" autoplay no-controls loop playsinline muted>
-                            <source src="./video2.mp4" type='video/mp4' />
-                        </video>
-                        <video class="slide__video" data-slide-video="2" preload="auto" autoplay no-controls loop playsinline muted>
-                            <source src="./loader-video.mp4" type='video/mp4' />
-                        </video>
-                        <video class="slide__video" data-slide-video="3" preload="auto" autoplay no-controls loop playsinline muted>
-                            <source src="./video2.mp4" type='video/mp4' />
-                        </video>
+                        <div class="slide-hidden" data-slide-num="0">01</div>
+                        <div class="slide-hidden" data-slide-num="1">02</div>
+                        <div class="slide-hidden" data-slide-num="2">03</div>
+                        <div class="slide-hidden" data-slide-num="3">04</div>
                     </div>
+
+                    <div class="projects__btn">
+                        <div id="slide-btn">
+                            <a href="#">Перейти</a>
+                        </div>
+
+                        <div class="slide-hidden" data-slide-btn="0">
+                            <a href="#0">Перейти</a>
+                        </div>
+                        <div class="slide-hidden" data-slide-btn="1">
+                            <a href="#1">Перейти2</a>
+                        </div>
+                        <div class="slide-hidden" data-slide-btn="2">
+                            <a href="#2">Перейти3</a>
+                        </div>
+                        <div class="slide-hidden" data-slide-btn="3">
+                            <a href="#3">Перейти4</a>
+                        </div>
+                    </div>
+
+                    <p class="projects__vertical">Lorem ipsum dolor sit amet</p>
+
+                    <div class="project__video">
+                        <video class="slide__video" id="slide__video" preload="auto" no-controls loop playsinline muted autoplay>
+                            <source src="./loader-video.mp4" type='video/mp4' />
+                        </video>
+
+                        <div class="slide-hidden" data-slide-video="0">./loader-video.mp4</div>
+                        <div class="slide-hidden" data-slide-video="1">./video2.mp4</div>
+                        <div class="slide-hidden" data-slide-video="2">./loader-video.mp4</div>
+                        <div class="slide-hidden" data-slide-video="3">./video2.mp4</div>
+
+                        <div class="video-controls">
+                            <button type="button" id="play-pause" class="play-pause"></button>
+                            <input type="range" id="seek-bar" class="seek-bar" value="0">
+                        </div>
+                    </div>
+
+                    <!-- <div class="slider__videos">
+                        <div class="project__video active">
+                            <video class="slide__video" id="slide__video1" data-slide-video="0" preload="auto" no-controls loop playsinline muted>
+                                <source src="./loader-video.mp4" type='video/mp4' />
+                            </video>
+                            <div class="video-controls">
+                                <button type="button" id="play-pause1" class="play-pause"></button>
+                                <input type="range" id="seek-bar1" class="seek-bar" value="0">
+                            </div>
+                        </div>
+                        <div class="project__video">
+                            <video class="slide__video" id="slide__video2" data-slide-video="1" preload="auto" no-controls loop playsinline muted>
+                                <source src="./video2.mp4" type='video/mp4' />
+                            </video>
+                            <div class="video-controls">
+                                <button type="button" id="play-pause2" class="play-pause"></button>
+                                <input type="range" id="seek-bar2" class="seek-bar" value="0">
+                            </div>
+                        </div>
+                        <video class="slide__video" data-slide-video="2" preload="auto" no-controls loop playsinline muted>
+                            <source src="./loader-video.mp4" type='video/mp4' />
+                        </video>
+                        <video class="slide__video" data-slide-video="3" preload="auto" no-controls loop playsinline muted>
+                            <source src="./video2.mp4" type='video/mp4' />
+                        </video>
+                    </div> -->
 
 
                     <svg width="20" height="20" class="projects__pattern1">
@@ -112,8 +159,7 @@
                     </svg>
 
                     <div class="projects__pattern3"></div>
-                    
-                    <p class="projects__vertical">Lorem ipsum dolor sit amet</p>
+
                 </div>
 
                 <div class="projects__images">
@@ -122,6 +168,8 @@
                     <img src="img/hypercritical__img.jpg" />
                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
                 </div>
+
+                <canvas id="canvasImg"></canvas>
             </div>
 
 
@@ -186,7 +234,6 @@
     </script>
     <!-- slider -->
     <script>
-
         const displacementSlider = function (opts) {
 
             let vertex = `
@@ -253,12 +300,13 @@
 
             let renderer = new THREE.WebGLRenderer({
                 antialias: false,
+                canvas: canvasImg,
             });
 
             renderer.setPixelRatio(window.devicePixelRatio);
             // renderer.setClearColor(0x, 1.0);
             renderer.setSize(renderW, renderH);
-            parent.appendChild(renderer.domElement);
+            // parent.appendChild(renderer.domElement);
 
             let loader = new THREE.TextureLoader();
             loader.crossOrigin = "anonymous";
@@ -324,7 +372,6 @@
                             this.className = 'active';
 
                             let slideId = parseInt(this.dataset.slide, 10);
-
                             mat.uniforms.nextImage.value = sliderImages[slideId];
                             mat.uniforms.nextImage.needsUpdate = true;
 
@@ -340,14 +387,34 @@
                             });
 
                             let slideTitleEl = document.getElementById('slide-title');
-                            let slideStatusEl = document.getElementById('slide-status');
+                            let slideTextEl = document.getElementById('slide-text');
+                            let slideButtonEl = document.getElementById('slide-btn');
+                            let slideNumberEl = document.getElementById('slide-num');
                             let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
-                            let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
+                            let nextSlideText = document.querySelectorAll(`[data-slide-text="${slideId}"]`)[0].innerHTML;
+                            let nextSlideButton = document.querySelectorAll(`[data-slide-btn="${slideId}"]`)[0].innerHTML;
+                            let nextSlideNumber = document.querySelectorAll(`[data-slide-num="${slideId}"]`)[0].innerHTML;
+
+                            // $('.project__video').css('display', 'none');
+                            // $('.project__video').removeClass('active');
+                            // $(`.slide__video[data-slide-video="${slideId}"]`).parent().css('display', 'block');
+                            // $(`.slide__video[data-slide-video="${slideId}"]`).parent().addClass('active');
+                            let slideVideoEl = $('#slide__video');
+                            let nextSlideVideo = $(`[data-slide-video="${slideId}"]`)[0].innerHTML;
+
+                            console.log("id:", slideId);
+                            console.log("video:", nextSlideVideo);
+
+                            slideVideoEl[0].pause();
+                            slideVideoEl.find('source').attr('src', nextSlideVideo);
+                            slideVideoEl[0].load();
+                            slideVideoEl[0].play();
 
 
-                            $('.slide__video').css('display', 'none');
-                            $(`.slide__video[data-slide-video="${slideId}"]`).css('display', 'block');
 
+                            // $("#canvasImg").removeClass('active');
+
+                            // setTimeout(() => {
                             TweenLite.fromTo(slideTitleEl, 0.5,
                                 {
                                     autoAlpha: 1,
@@ -355,7 +422,7 @@
                                 },
                                 {
                                     autoAlpha: 0,
-                                    y: 20,
+                                    y: 70,
                                     ease: 'Expo.easeIn',
                                     onComplete: function () {
                                         slideTitleEl.innerHTML = nextSlideTitle;
@@ -367,25 +434,72 @@
                                     }
                                 });
 
-                            TweenLite.fromTo(slideStatusEl, 0.5,
+                            TweenLite.fromTo(slideTextEl, 0.5,
                                 {
                                     autoAlpha: 1,
                                     y: 0
                                 },
                                 {
                                     autoAlpha: 0,
-                                    y: 20,
+                                    y: 50,
                                     ease: 'Expo.easeIn',
                                     onComplete: function () {
-                                        slideStatusEl.innerHTML = nextSlideStatus;
+                                        slideTextEl.innerHTML = nextSlideText;
 
-                                        TweenLite.to(slideStatusEl, 0.5, {
+                                        TweenLite.to(slideTextEl, 0.5, {
                                             autoAlpha: 1,
                                             y: 0,
                                             delay: 0.1,
                                         })
                                     }
                                 });
+
+                            TweenLite.fromTo(slideButtonEl, 0.5,
+                                {
+                                    autoAlpha: 1,
+                                    y: 0
+                                },
+                                {
+                                    autoAlpha: 0,
+                                    y: 40,
+                                    ease: 'Expo.easeIn',
+                                    onComplete: function () {
+                                        slideButtonEl.innerHTML = nextSlideButton;
+
+                                        TweenLite.to(slideButtonEl, 0.5, {
+                                            autoAlpha: 1,
+                                            y: 0,
+                                            delay: 0.1,
+                                        })
+                                    }
+                                });
+
+                            TweenLite.fromTo(slideNumberEl, 0.5,
+                                {
+                                    autoAlpha: 1,
+                                    y: 0
+                                },
+                                {
+                                    autoAlpha: 0,
+                                    y: 0,
+                                    ease: 'Expo.easeIn',
+                                    onComplete: function () {
+                                        slideNumberEl.innerHTML = nextSlideNumber;
+
+                                        TweenLite.to(slideNumberEl, 0.5, {
+                                            autoAlpha: 1,
+                                            y: 0,
+                                            delay: 0.1,
+                                        })
+                                    }
+                                });
+
+                            // $("#canvasImg").addClass('active');
+                            // $(".project__video.active").find('.slide__video').css('opacity', 1);
+                            // $(".slide__video").stop();
+                            // $(".slide__video").currentTime = 0;
+                            // $(".project__video.active").find('.slide__video')[0].play();
+                            // }, 1000);
 
                         }
 
@@ -614,19 +728,76 @@
     </script>
     <!-- video play -->
     <script>
-        $('.projects__img').hover(function () {
-            setTimeout(() => {
-                $(this).find("#projects__video")[0].play();
-            }, 1000);
-        });
-        $(document).on('click', '.projects__img', function () {
-            var video = $(this).find("#projects__video")[0];
-            if (video.paused) {
-                video.play();
+        $("#canvasImg").removeClass('active');
+
+        setTimeout(() => {
+            $("#canvasImg").addClass('active');
+            $(".slide__video").css('opacity', 1);
+            // $(".project__video.active").find('.slide__video')[0].play();
+        }, 1000);
+
+        // $('.project__video').hover(function () {
+        //     $('.video-controls').toggleClass('visible');
+        // })
+        $('.video-controls').hover(function () {
+            $(this).toggleClass('visible');
+        })
+
+        $("body").on('wheel', function (e) {
+            if (e.originalEvent.deltaY < 0) {
+                $("body").css("background-color", "red");
             } else {
-                video.pause();
+                $("body").css("background-color", "yellow");;
             }
         });
+    </script>
+
+    <script>
+        var video = document.querySelector("#slide__video");
+        var playButton = document.getElementById("play-pause");
+        var seekBar = document.getElementById("seek-bar");
+
+        playButton.addEventListener("click", function () {
+            if (video.paused == true) {
+                video.play();
+                $('#play-pause').removeClass('pause');
+            } else {
+                video.pause();
+                $('#play-pause').addClass('pause');
+            }
+        });
+
+        seekBar.addEventListener("change", function () {
+            var time = video.duration * (seekBar.value / 100);
+            video.currentTime = time;
+        });
+        video.addEventListener("timeupdate", function () {
+            var value = (100 / video.duration) * video.currentTime;
+            seekBar.value = value;
+        });
+
+        // var video2 = document.querySelector("#slide__video2");
+        // var playButton2 = document.getElementById("play-pause2");
+        // var seekBar2 = document.getElementById("seek-bar2");
+
+        // playButton2.addEventListener("click", function () {
+        //     if (video2.paused == true) {
+        //         video2.play();
+        //         $('#play-pause2').removeClass('pause');
+        //     } else {
+        //         video2.pause();
+        //         $('#play-pause2').addClass('pause');
+        //     }
+        // });
+
+        // seekBar1.addEventListener("change", function () {
+        //     var time = video2.duration * (seekBar2.value / 100);
+        //     video2.currentTime = time;
+        // });
+        // video1.addEventListener("timeupdate", function () {
+        //     var value = (100 / video2.duration) * video2.currentTime;
+        //     seekBar2.value = value;
+        // });
     </script>
 
 </body>
