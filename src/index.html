@@ -36,19 +36,19 @@
 <body class="home" data-barba="wrapper" data-scroll-container>
 
     <!-- preloader home-page -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="progress"><span id="progress-value">0</span>%</div>
         <span class="circle"></span>
         <span class="circle"></span>
-    </div>
+    </div> -->
 
     <!-- intro -->
-    <div class="slide">
+    <!-- <div class="slide">
         <h2 class="word">Dmitriy Bozhko</h2>
-    </div>
+    </div> -->
 
     <!-- barba loadind screen  -->
-    @@include('./blocks/main/_barba-loading.html')
+    <!-- @@include('./blocks/main/_barba-loading.html') -->
 
     <!-- header -->
     @@include('./blocks/main/_header.html')
@@ -65,6 +65,20 @@
         })
 
 
+        <!-- top
+        ======================================================= -->
+        <!-- <div class="canvasTop"></div> -->
+
+        <div class="top--dd">
+            <canvas id="myCanvas"></canvas>
+            <!-- <div class="container"> -->
+            <!-- <div class="top__inner"> -->
+
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
+        <!-- top end -->
+
         @@include('./blocks/main/_footer.html')
 
     </main>
@@ -74,9 +88,17 @@
 
     <!-- Libraries -->
     <script src="./locomotive-scroll.min.js"></script>
+    <!-- <script src="https://cdn1js.cloudflare.com/ajax/libs/three.js/105/three.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script> -->
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script> -->
+    <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+    <script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
 
     <!-- preloader percents -->
-    <script>
+    <!-- <script>
         var runPreloader = function () {
             document.getElementById("progress-value").textContent = "0";
             var counter = 0;
@@ -92,7 +114,7 @@
         };
 
         runPreloader();
-    </script>
+    </script> -->
     <!-- Locomotive Scroll -->
     <script>
         // --- Locomotive Scroll (Smoth)
@@ -105,9 +127,9 @@
         document.addEventListener("DOMContentLoaded", function (event) {
             window.setTimeout(function () {
                 scroll.init();
-            }, 5000);
+            }, 300);
         });
-       
+
         var a = {
             0: function () {
                 scroll.stop();
@@ -122,8 +144,8 @@
             a[++b % 2]()
         })
     </script>
-    <!-- intro -->
-    <script>
+    <!-- intro
+    <!-- <script>
         !function (e) { "undefined" == typeof module ? this.charming = e : module.exports = e }(function (e, n) { "use strict"; n = n || {}; var t = n.tagName || "span", o = null != n.classPrefix ? n.classPrefix : "char", r = 1, a = function (e) { for (var n = e.parentNode, a = e.nodeValue, c = a.length, l = -1; ++l < c;) { var d = document.createElement(t); o && (d.className = o + r, r++), d.appendChild(document.createTextNode(a[l])), n.insertBefore(d, e) } n.removeChild(e) }; return function c(e) { for (var n = [].slice.call(e.childNodes), t = n.length, o = -1; ++o < t;)c(n[o]); e.nodeType === Node.TEXT_NODE && a(e) }(e), e });
 
         /**
@@ -437,7 +459,105 @@
                 document.querySelector('.slide').classList.add('active');
             }, 5000)
         }
+    </script> -->
+
+    <script>
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+
+        let objectLoader = new THREE.ObjectLoader()
+        let gem
+
+        const scene = new THREE.Scene();
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('myCanvas'),
+            alpha: true,
+            antialias: true,
+        });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(w, h);
+
+        const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
+        camera.position.z = 7;
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+        scene.add(camera);
+
+        function addLights() {
+            const shadowLight = new THREE.DirectionalLight(0xffffff, 0.5)
+            shadowLight.position.set(2, 10, 1)
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+            const ambientLight2 = new THREE.AmbientLight(0x000000, 0.2)
+            const light1 = new THREE.PointLight(0x000000, 0.4, 100)
+            light1.position.set(30, 0, 10)
+            const light2 = new THREE.PointLight(0xffffff, 0.4, 100)
+            light2.position.set(-40, 0, 20)
+            const light3 = new THREE.PointLight(0x000000, 0.4, 100)
+            light3.position.set(0, -5, 5)
+            const light4 = new THREE.PointLight(0xffffff, 0.2, 100)
+            light4.position.set(-2, 1, 2)
+            const light5 = new THREE.PointLight(0x000000, 0.2, 100)
+            light5.position.set(-5, -2, 5)
+            scene.add(shadowLight, ambientLight, ambientLight2, light1, light2, light3, light4, light5)
+        }
+        addLights()
+
+        function createGem() {
+            objectLoader.load(
+                'https://s3-us-west-2.amazonaws.com/s.cdpn.io/126747/gem1.json',
+                function (gemMesh) {
+                    gemMesh.position.x = 0
+                    gemMesh.position.z = -1
+                    gemMesh.scale.setScalar(10)
+
+                    gsap.timeline({
+                        defaults: {},
+                        scrollTrigger: {
+                            trigger: 'body',
+                            start: 'top top',
+                            end: 'bottom bottom',
+                            scrub: 0.7,
+                            markers: false,
+                        }
+                    }).to(gemMesh.rotation, {
+                        y: Math.PI * 2,
+                    });
+
+                    gem = gemMesh
+                    gem.children[0].geometry.computeFlatVertexNormals()
+                    console.log(gem)
+                    scene.add(gem)
+                }
+            )
+
+        }
+        createGem()
+
+
+        const init = () => {
+            gem.rotation.y += 0.005;
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(init);
+        }
+
+        const onResize = () => {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(w, h);
+        };
+
+        window.addEventListener('load', () => {
+            init();
+        });
+        window.addEventListener('resize', () => {
+            onResize();
+        });
     </script>
+
 </body>
 
 </html>
