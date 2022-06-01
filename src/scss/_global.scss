@@ -14,13 +14,14 @@ $main: #1c1c1c;
 
 $f2: "aromanus";
 $mc: #d3a13b;
+$main: #6B3BE7;
 
 // ---- Global-Tags ----
 html {
   overflow-x: hidden;
   box-sizing: border-box;
   &.hidden {
-    overflow-y: hidden;
+    overflow-y: hidden !important;
   }
 }
 *,
@@ -30,7 +31,7 @@ html {
 }
 body {
   position: relative;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   min-width: 320px;
   font-family: $font;
   font-weight: 400;
@@ -497,4 +498,9 @@ html.has-scroll-smooth {
       opacity: 0;
     }
   }
+}
+
+
+.layer {
+  transition: 0.2s ease;
 }
