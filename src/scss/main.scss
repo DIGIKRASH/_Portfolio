@@ -3,7 +3,7 @@
   padding-top: 50px;
   width: 100%;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   z-index: 1500;
   .nav-menu {
     display: flex;
@@ -633,11 +633,11 @@
   }
 }
 html {
-  overflow: hidden !important;
-  height: 100vh;
+  // overflow: hidden !important;
+  // height: 100vh;
 }
 .about {
-  overflow: hidden !important;
+  // overflow: hidden !important;
   // height: 100vh;
 }
 .about.loaded {
@@ -1695,20 +1695,31 @@ html {
   &::before {
     content: "";
     position: absolute;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
-    width: 200%;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 200vw;
     height: 200vh;
     background: transparent url("../img/asfalt-light.png") repeat 0 0;
     animation: bg-animation 0.2s infinite;
     z-index: -10;
+    opacity: 0.85;
+  }
+  .container {
+    max-width: 1200px;
+    position: relative;
+  }
+  .header .container {
+    max-width: 1440px;
   }
 }
 
 // --------- top-about ----------
 .top-about {
+  .container {
+    position: static;
+  }
   .top-about__inner {
     position: relative;
     width: 100%;
@@ -1717,8 +1728,20 @@ html {
     align-items: center;
     justify-content: center;
   }
+  .top-about__backtext {
+    font-weight: 900;
+    font-size: 265px;
+    line-height: 321px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(#fff, 0.05);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
   .top-about__titel {
-    width: 65%;
+    width: 55%;
     height: 50%;
     position: absolute;
   }
@@ -1726,38 +1749,24 @@ html {
   .top-about__title2 {
     z-index: 10;
     position: absolute;
-    font-family: $f2;
-    font-weight: 400;
-    font-size: 140px;
-    line-height: 120px;
-    text-transform: capitalize;
+    font-family: $f3;
+    font-size: 85px;
+    line-height: 130px;
+    letter-spacing: 0.05em;
     span {
       overflow: hidden;
       display: block;
-      padding-bottom: 7px;
-      b {
-        white-space: nowrap;
-        display: block;
-        transition: 1.5s ease-in-out;
-        transform: translateY(150%);
-      }
-    }
-    span:nth-child(1) {
-      font-size: 60px;
-      line-height: 60px;
-      text-transform: lowercase;
     }
   }
   .top-about__title1 {
     left: 0;
     top: 0;
-    span {
-      margin-left: 40px;
-    }
+    transform: rotate(-16deg);
   }
   .top-about__title2 {
     right: 0;
     bottom: 0;
+    transform: rotate(4deg);
   }
   .line-wave {
     pointer-events: none;
@@ -2392,7 +2401,7 @@ body {
     background: transparent url("../img/asfalt-light.png") repeat 0 0;
     animation: bg-animation 0.2s infinite;
     z-index: -10;
-    opacity: 0;
+    // opacity: 0;
     transition: 2s ease-out;
   }
   .text__logo {
@@ -2413,7 +2422,6 @@ body {
     left: 0;
     right: 0;
     z-index: 30;
-
   }
   #myCanvas {
     opacity: 0;
@@ -2615,5 +2623,328 @@ body {
   .menu-diamond {
     opacity: 1;
     transition-delay: 11s;
+  }
+}
+
+// --------- some-about ----------
+.some-about {
+  padding-top: 300px;
+  margin-bottom: 350px;
+  .some-about__inner {
+  }
+  .some-about__title {
+    font-family: $f2;
+    font-size: 172px;
+    line-height: 117px;
+    color: $main;
+    width: 600px;
+    position: absolute;
+    left: 0%;
+    top: 35%;
+  }
+  .some-about__img {
+    width: 753px;
+    height: 267px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    margin-left: auto;
+    margin-bottom: 36px;
+  }
+  .some-about__note {
+    text-transform: uppercase;
+    position: absolute;
+    left: 22%;
+    top: -15%;
+    z-index: -1;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 278px;
+      height: 278px;
+      border-radius: 50%;
+      left: -53px;
+      top: -78px;
+      box-shadow: 0px 0px 1px rgba(#fff, 0.7);
+      animation: shadow-note 10s linear infinite;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 278px;
+      height: 278px;
+      border-radius: 50%;
+      left: -53px;
+      top: -78px;
+      box-shadow: 0px 0px 1px rgba(#fff, 0.7);
+      animation: shadow-note 10s 0.3s linear infinite;
+    }
+    @keyframes shadow-note {
+      50% {
+        transform: rotate(360deg) translate(2px, 2px);
+      }
+    }
+  }
+  .some-about__note-text {
+    font-size: 14px;
+    line-height: 25px;
+    width: 155px;
+  }
+  .some-about__note-simbol {
+    font-size: 34px;
+    line-height: 41px;
+    animation: simbol-note 10s ease-in-out infinite;
+    display: inline-block;
+    @keyframes simbol-note {
+      50% {
+        transform: rotate(45deg);
+      }
+    }
+  }
+  .some-about__text {
+    font-size: 18px;
+    line-height: 37px;
+    color: rgba(#fff, 0.75);
+    width: 485px;
+    margin-left: auto;
+  }
+}
+
+// --------- skills ----------
+.skills {
+  margin-bottom: 300px;
+  .skills__inner {
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .skills__info {
+    height: 100%;
+    width: 85%;
+    margin-right: 90px;
+    position: relative;
+  }
+  .skills__list {
+    counter-reset: list 1;
+    margin-bottom: 150px;
+    padding-right: 80px;
+  }
+  .skills__list-item {
+    position: relative;
+    padding-left: 75px;
+    &::before {
+      counter-increment: list list;
+      content: counter(list);
+      position: absolute;
+      top: -5px;
+      left: 0;
+      margin-right: 25px;
+      text-align: right;
+      font-size: 40px;
+      line-height: 48px;
+      text-transform: uppercase;
+      text-align: right;
+      width: 45px;
+    }
+    h6 {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 24px;
+      text-transform: capitalize;
+      color: rgba(#fff, 0.5);
+    }
+  }
+  .skills__list-item:not(:last-child) {
+    margin-bottom: 35px;
+  }
+  .skills__year {
+    font-size: 25px;
+    line-height: 30px;
+    text-transform: uppercase;
+    position: relative;
+    padding-top: 20px;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 3px;
+      background-color: #fff;
+      top: 0;
+      left: 0;
+    }
+  }
+  .skills__dashed {
+    height: 130%;
+    width: 3px;
+    stroke: rgba(#fff, 1);
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-image: url(../img/dashed.svg);
+    background-size: cover;
+    animation: skills-dashed linear 35s infinite;
+    @keyframes skills-dashed {
+      from {
+        background-position-y: 0;
+      }
+      to {
+        background-position-y: 700px;
+      }
+    }
+  }
+  .skills__title {
+    width: 15%;
+    font-size: 85px;
+    line-height: 103px;
+    text-transform: uppercase;
+    color: $main;
+    span {
+      display: block;
+    }
+  }
+}
+
+// --------- design ----------
+.design {
+  margin-bottom: 400px;
+  .design__inner {
+  }
+  .design__img {
+    margin: 0 auto;
+    width: 430px;
+    height: 730px;
+    mix-blend-mode: lighten;
+    border-radius: 50%;
+    img {
+      border-radius: 250px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .design__note {
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-family: $f2;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    z-index: 10;
+    &::after {
+      content: "";
+      position: absolute;
+      width: calc(100% - 25px);
+      height: 1px;
+      background-color: #fff;
+      left: 25px;
+      bottom: 0;
+    }
+  }
+  .design__pattern {
+    position: absolute;
+    bottom: -20%;
+    left: 8%;
+    width: 660px;
+    height: 660px;
+    fill: $main;
+    z-index: 5;
+  }
+  .design__content {
+    width: 380px;
+    position: absolute;
+    right: 8%;
+    bottom: 5%;
+  }
+  .design__title {
+    font-family: $f2;
+    font-size: 104px;
+    line-height: 132px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-left: 25px;
+  }
+  .design__pretext {
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-left: 50px;
+  }
+  .design__text {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 18px;
+  }
+  .design__list {
+    margin-left: 50px;
+  }
+  .design__list-item {
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    .letter {
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-right: 18px;
+    }
+  }
+  .design__list-item:not(:last-child) {
+    margin-bottom: 6px;
+  }
+}
+
+// --------- learning ----------
+.learning {
+  margin-bottom: 250px;
+  text-align: center;
+  .learning__model {
+    position: relative;
+    left: 51%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 350px;
+    margin-bottom: -50px;
+  }
+  .learning__title {
+    font-family: $f2;
+    font-size: 106px;
+    line-height: 172px;
+    margin-bottom: 100px;
+    text-transform: uppercase;
+  }
+  .learning__pretext {
+    font-family: $f3;
+    font-size: 26px;
+    line-height: 42px;
+    color: rgba(#fff, 0.75);
+  }
+  .learning__pretitle {
+    margin-top: -250px;
+    margin-bottom: 65px;
+    font-family: $f2;
+    font-size: 60px;
+    line-height: 76px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(#fff, 0.75);
+  }
+  .learning__text {
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: rgba(#fff, 0.6);
   }
 }

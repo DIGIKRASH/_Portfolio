@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="hidden">
+<html lang="ru" class="">
 
 <head>
   <meta charset="UTF-8">
@@ -22,14 +22,17 @@
 
   <!-- Preload -->
   <script>
-    window.onload = function () {
+    window.onload = function ()
+    {
       document.body.classList.add('loading');
-      window.setTimeout(function () {
+      window.setTimeout(function ()
+      {
         document.body.classList.add('loaded');
         document.body.classList.remove('loading');
         document.documentElement.classList.remove('loading');
       }, 500);
-      window.setTimeout(function () {
+      window.setTimeout(function ()
+      {
         document.documentElement.classList.remove('hidden');
       }, 1500);
     }
@@ -63,15 +66,14 @@
     <section class="top-about" data-scroll-section>
       <div class="container">
         <div class="top-about__inner">
+          <div class="top-about__backtext">Привет</div>
           <div class="top-about__titel">
-            <h1 class="top-about__title1">
-              <span><b>the highest</b></span>
-              <span><b>pleasure</b></span>
-            </h1>
-            <h1 class="top-about__title2">
-              <span><b>is</b></span>
-              <span><b>Illusion</b></span>
-            </h1>
+            <h2 class="top-about__title1">
+              <span>Dmitriy</span>
+            </h2>
+            <h2 class="top-about__title2">
+              <span>Bozhko</span>
+            </h2>
           </div>
         </div>
         <div id="containerIslands">
@@ -99,6 +101,127 @@
     </section>
     <!-- top-about end -->
 
+
+    <!-- some-about
+    ======================================================= -->
+    <section class="some-about" data-scroll-section>
+      <div class="container">
+        <div class="some-about__inner">
+          <div class="some-about__note">
+            <p class="some-about__note-text">постоянно изучаю Новые стандарты</p>
+            <div class="some-about__note-simbol">+</div>
+          </div>
+          <div class="some-about__img">
+            <img src="./img/some-about__img.jpg" alt="">
+          </div>
+          <h1 class="some-about__title">Немного обо мне</h1>
+          <p class="some-about__text">Целеустремленный, ответственный, исполнительный. Имею аналитический склад ума и логическое мышление - в процессе продумываю каждую деталь и подготавливаю удобный, в нужных местах прокомментированный, код. Иногда сам создаю дизайн сайта по просьбе клиента, исходя из его потребностей</p>
+        </div>
+      </div>
+    </section>
+    <!-- some-about end -->
+
+
+    <!-- skills
+    ======================================================= -->
+    <section class="skills" data-scroll-section>
+      <div class="container">
+        <div class="skills__inner">
+          <div class="skills__info">
+            <ol class="skills__list">
+              <li class="skills__list-item">
+                <h6>HTML/CSS/JS</h6>
+                <p>Основные элементы верстки</p>
+              </li>
+              <li class="skills__list-item">
+                <h6>Scss/Sass, Pug, Less</h6>
+                <p>Препроцессоры</p>
+              </li>
+              <li class="skills__list-item">
+                <h6>Кроссбраузерность/Адаптивность</h6>
+                <p>Поддержка верски на разных браузерах и на разных устройствах</p>
+              </li>
+              <li class="skills__list-item">
+                <h6>three.js</h6>
+                <p>3D библиотека</p>
+              </li>
+              <li class="skills__list-item">
+                <h6>GSAP, anime.js, tweenMax</h6>
+                <p>Библиотека для создания анимаций</p>
+              </li>
+              <li class="skills__list-item">
+                <h6>Typescript</h6>
+                <p>Аналог JS</p>
+              </li>
+              <li class="skills__list-item">
+                <h6>Figma</h6>
+                <p>Создание дизайна, Доработка дизайна</p>
+              </li>
+            </ol>
+            <div class="skills__year">2022</div>
+            <div class="skills__dashed"></div>
+          </div>
+          <h3 class="skills__title">Навыки</h3>
+        </div>
+      </div>
+    </section>
+    <!-- skills end -->
+
+
+    <!-- design
+    ======================================================= -->
+    <section class="design" data-scroll-section>
+      <div class="container">
+        <div class="design__inner">
+          <div class="design__img">
+            <img src="./img/design__img1.jpg" width="" height="" loading="lazy" alt="">
+          </div>
+          <div class="design__note">Figma</div>
+          <svg width="20" height="20" class="design__pattern">
+            <use xlink:href="./img/icons/icons.svg#design__pattern" />
+          </svg>
+          <div class="design__content">
+            <h3 class="design__title">дИЗАЙН</h3>
+            <p class="design__pretext">Дело на любителя</p>
+            <p class="design__text">Не является моей главной специализацией, но без проблем сделаю дизайн, если его же буду и верстать</p>
+            <ul class="design__list">
+              <li class="design__list-item">
+                <div class="letter">П</div>
+                <p>Простой или сложный</p>
+              </li>
+              <li class="design__list-item">
+                <div class="letter">Л</div>
+                <p>Любой стиль</p>
+              </li>
+              <li class="design__list-item">
+                <div class="letter">Э</div>
+                <p>Этот сайт - пример</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- design end -->
+
+
+    <!-- learning
+    ======================================================= -->
+    <section class="learning" data-scroll-section>
+      <div class="container">
+        <div class="learning__inner">
+          <div class="learning__model">
+            <canvas id="canvas1"></canvas>
+          </div>
+          <h3 class="learning__title">Это не всё</h3>
+          <p class="learning__pretext">2022</p>
+          <h4 class="learning__pretitle">Постоянно развиваюсь и изучаю новое</h4>
+          <p class="learning__text">Dmitriy Bozhko</p>
+        </div>
+      </div>
+    </section>
+    <!-- learning end -->
+
     @@include('./blocks/main/_footer.html')
 
   </main>
@@ -108,20 +231,82 @@
 
   <!-- Libraries -->
   <script src="./locomotive-scroll.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+  <script src="https://cdn.rawgit.com/peterhry/CircleType/master/dist/circletype.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script> -->
+  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+  <script src="https://threejs.org/build/three.min.js"></script>
 
+  <script>
+    const barberText = new CircleType(document.querySelector('.learning__pretitle')).dir(-1).radius(750);
+  </script>
+
+  <script>
+    // gsap.to('.skills__dashed', 35, {
+    //   ease: Linear.easeNone,
+    //   repeat: -1,
+    //   delay: 0.1,
+    //   backgroundPositionY: 700,
+    //   paused: false,
+    // })
+  </script>
+
+  <script>
+    var WIDTH2 = document.querySelector('.learning__model').offsetWidth;
+    var HEIGHT2 = document.querySelector('.learning__model').offsetWidth
+
+    var renderer2 = new THREE.WebGLRenderer({ alpha: true, antialias: true, canvas: canvas1 });
+    renderer2.setSize(WIDTH2, HEIGHT2);
+
+    var scene2 = new THREE.Scene();
+
+    var camera2 = new THREE.PerspectiveCamera(70, WIDTH2 / HEIGHT2);
+    camera2.position.z = 50;
+    scene2.add(camera2);
+
+    var boxGeometry2 = new THREE.OctahedronGeometry(9);
+    var basicMaterial2 = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, wireframe: true });
+    var cube2 = new THREE.Mesh(boxGeometry2, basicMaterial2);
+
+    scene2.add(cube2)
+    cube2.rotation.set(0.4, 0.2, 0);
+
+    (function render()
+    {
+      requestAnimationFrame(render);
+      cube2.rotation.y += 0.01;
+      cube2.rotation.x += 0.01;
+
+      renderer2.render(scene2, camera2);
+    }())
+  </script>
+
+  <script>
+    let target1 = document.querySelector('.skills__title');
+    let symbols1 = target1.innerHTML.split('');
+
+    target1.innerHTML = '';
+
+    symbols1.forEach(function (item, i, arr)
+    { // в цикле по всем 
+      var span = document.createElement('span'); // создаем span
+      span.innerHTML = item; // задаем содержимое span
+      target1.appendChild(span); // прикрепляем к body
+    });
+  </script>
   <!-- fps -->
   <script>
     javascript: (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
   </script>
   <!-- preloader -->
   <script>
-    $(document).ready(function () {
+    $(document).ready(function ()
+    {
       const LANDING = {};
       LANDING.intro = document.querySelector(".preloader-page");
       LANDING.path = LANDING.intro.querySelector("path");
 
-      const svgAnimation = () => {
+      const svgAnimation = () =>
+      {
         console.log("Animation");
 
         anime({
@@ -150,23 +335,28 @@
       smoothMobile: true,
     });
     scroll.destroy();
-    document.addEventListener("DOMContentLoaded", function (event) {
-      window.setTimeout(function () {
+    document.addEventListener("DOMContentLoaded", function (event)
+    {
+      window.setTimeout(function ()
+      {
         scroll.init();
-      }, 5500);
+      }, 500);
     });
 
     var a = {
-      0: function () {
+      0: function ()
+      {
         scroll.stop();
       },
 
-      1: function () {
+      1: function ()
+      {
         scroll.start();
       }
     }, b = -1;
 
-    $('.menu-diamond').click(function () {
+    $('.menu-diamond').click(function ()
+    {
       a[++b % 2]()
     })
   </script>
@@ -283,11 +473,11 @@
    
       float shadowSDF = traceLines(uv, vec2(cos(angle), sin(angle)));
       float s = 0.2;
-      float thinShadows = makeLine(shadowSDF-0.5, 0.2);
+      float thinShadows = makeLine(shadowSDF-0.2, 0.2);
       
       float AA = 0.02;
-      float inside = smoothstep(0.,0. -AA, sdf);
-      float outside = smoothstep(0. + AA,0.,sdf);
+      float inside = smoothstep(0.,0. +AA, sdf);
+      float outside = smoothstep(0. -AA,0.,sdf);
       float outline =  outside - inside;
       
       float lines = 0.1; 
@@ -435,23 +625,25 @@
   }
     
   </script>
-  <script>
-    console.clear();
+  <!-- <script>
+    // console.clear();
     let options = {
       shaderUtils: ['simplex'],
       width: 20,
       height: 20,
       useGUI: false
     }
-    class App {
-      constructor() {
+    class App
+    {
+      constructor()
+      {
         const config = {
           movement: 'controlled',
           style: 'padded',
           // light: 'controlled'
         }
         this.config = config;
-        const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: islands });
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, canvas: islands });
         renderer.setSize(window.innerWidth, window.innerHeight);
 
         const VIEW_ANGLE = 45,
@@ -487,7 +679,8 @@
         window.addEventListener('mousemove', this.onMouseMove.bind(this));
         this.init();
       }
-      init() {
+      init()
+      {
         const geometry = new THREE.PlaneBufferGeometry(options.width, options.height, 1, 1);
         let fragment = document.getElementById('fragment').textContent;
         fragment = getShaderUtils(options.shaderUtils) + fragment;
@@ -504,22 +697,26 @@
           this.initGUI();
         this.tick();
       }
-      initGUI() {
+      initGUI()
+      {
         this.gui = new dat.GUI();
       }
-      tick() {
+      tick()
+      {
         this.uniforms.uTime.value = this.clock.getElapsedTime();
         this.uniforms.uTime.needsUpdate = true;
         this.renderer.render(this.scene, this.camera);
         requestAnimationFrame(this.tick);
       }
-      onResize() {
+      onResize()
+      {
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
 
         this.renderer.setSize(window.innerWidth, window.innerHeight);
       }
-      onMouseMove(ev) {
+      onMouseMove(ev)
+      {
         let mouse = {
           x: (ev.clientX / window.innerWidth) * 2 - 1,
           y: - (ev.clientY / window.innerHeight) * 2 + 1
@@ -529,7 +726,8 @@
         const raycaster = this.raycaster;
         raycaster.setFromCamera(mouse, this.camera);
         var intersects = raycaster.intersectObjects(this.scene.children);
-        if (intersects.length > 0) {
+        if (intersects.length > 0)
+        {
           let obj = intersects[0];
           this.uniforms.uMouse.value.set(obj.uv.x, obj.uv.y);
           this.uniforms.uMouse.needsUpdate = true;
@@ -540,11 +738,13 @@
     const shaders = {
       simplex: document.getElementById('util-noise').textContent
     }
-    const getShaderUtils = (keys) => {
+    const getShaderUtils = (keys) =>
+    {
       return keys.reduce((res, key) => res + shaders[key], '')
     }
     const myApp = new App();
-  </script>
+  </script> -->
+
 </body>
 
 </html>
