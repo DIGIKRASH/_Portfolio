@@ -2655,6 +2655,7 @@ body {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform: scale(1.4);
     }
     margin-left: auto;
     margin-bottom: 36px;
@@ -2863,6 +2864,7 @@ body {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform: scale(1.4);
     }
   }
   .design__note {
@@ -2902,16 +2904,17 @@ body {
     left: 8%;
     width: 660px;
     height: 660px;
-    fill: $main;
     z-index: 5;
-    path {
-      // transform: scale(0);
-      opacity: 0;
-      // transform-origin: center;
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: $main;
     }
-    path:nth-child(5) {
-      // transform-origin: center;
-      // transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    path {
+      transform: scale(0);
+      opacity: 0;
+      transform-origin: center;
+      transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
   }
   .design__content {
@@ -3117,6 +3120,17 @@ body {
     }
   }
   &.design__inner {
+    .design__pattern {
+      path {
+        transform: scale(1);
+        opacity: 1;
+      }
+      @for $i from 1 through 7 {
+        path:nth-child(#{$i}) {
+          transition-delay: $i * 0.1s + 0.5s;
+        }
+      }
+    }
     .reveal-img {
       img {
         opacity: 1;
