@@ -79,9 +79,7 @@
           </div>
         </div>
 
-        <div id="containerIslands">
-          <canvas id="islands"></canvas>
-        </div>
+        <canvas id="lines"></canvas>
 
         <div class="lines">
           <svg class="line-wave" preserveAspectRatio="none" viewBox="0 0 340 160" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -277,10 +275,102 @@
   <script src="https://threejs.org/build/three.min.js"></script>
   <!-- <script src="https://cdn.rawgit.com/coderitual/odoo/feature/codevember16/lib/odoo.js"></script> -->
   <script src="https://unpkg.com/bounty@1.1.6/lib/bounty.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin3.min.js"></script>
 
 
   <script>
+    const canvas = document.querySelector('.webgl')
+    const scene = new THREE.Scene()
 
+    const sizes = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+
+    const degreesToRadians = (degrees) =>
+    {
+      return degrees * (Math.PI / 180)
+    }
+
+    /**
+     * Renderer
+     */
+    const renderer = new THREE.WebGLRenderer({ alpha: true, canvas: lines })
+
+    const render = (renderer) =>
+    {
+      renderer.setSize(sizes.width, sizes.height)
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+      renderer.render(scene, camera)
+    }
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 1000)
+    camera.position.z = 5
+    scene.add(camera)
+
+    window.addEventListener('resize', () =>
+    {
+      // Update sizes
+      sizes.width = window.innerWidth
+      sizes.height = window.innerHeight
+
+      // Update camera
+      camera.aspect = sizes.width / sizes.height
+      camera.updateProjectionMatrix()
+
+      // Update renderer
+      render(renderer)
+    })
+
+    let pivot
+    const points = []
+    const numberOfPoints = 600
+    let rIncrement = 0
+
+    const drawLine = () =>
+    {
+      pivot = new THREE.Group()
+
+      for (i = 0; i < numberOfPoints; i++)
+      {
+        const totalRotation = degreesToRadians(360 * 10)
+        const angleStep = totalRotation / numberOfPoints
+        const radius = rIncrement
+
+        const x = Math.cos(i * angleStep) * radius
+        const y = Math.sin(i * angleStep) * radius
+        const z = i * 0.006
+        points.push(new THREE.Vector3(x, y, z))
+        rIncrement = i <= numberOfPoints / 2 ? rIncrement + 0.0015 : rIncrement - 0.0015
+      }
+
+      const lineGeometry = new THREE.BufferGeometry().setFromPoints(points)
+      const lineMaterial = new THREE.LineBasicMaterial({ color: 0x6b3be7 })
+      const line = new THREE.Line(lineGeometry, lineMaterial)
+      pivot.add(line)
+      scene.add(pivot)
+
+      line.position.z = numberOfPoints * -0.003
+    }
+
+    drawLine()
+
+    // Lighting
+    const lightAmbient = new THREE.AmbientLight(0x9eaeff, 1)
+    scene.add(lightAmbient)
+
+    render(renderer)
+
+      (function render()
+      {
+        requestAnimationFrame(render);
+        pivot.rotation.x += 0.01;
+        pivot.rotation.y += 0.01;
+        pivot.rotation.z += 0.01;
+
+        renderer.render(scene, camera);
+      }())
   </script>
 
   <script>
@@ -472,24 +562,35 @@
       const LANDING = {};
       LANDING.intro = document.querySelector(".preloader-page");
       LANDING.path = LANDING.intro.querySelector("path");
+      LANDING.d = LANDING.path.getAttribute("pathdata:id")
 
       const svgAnimation = () =>
       {
-        console.log("Animation");
 
-        anime({
-          targets: LANDING.intro,
-          duration: 2000,
-          easing: "easeInOutSine",
-          translateY: "-200vh"
-        });
+        gsap.to(LANDING.intro, {
+          duration: 2,
+          ease: "power1.inOut",
+          y: "-200vh",
+        })
+        gsap.to(LANDING.path, {
+          morphSVG: LANDING.d, 
+          duration: 1.5,
+          ease: "power1.inOut",
+        })
 
-        anime({
-          targets: LANDING.path,
-          duration: 1500,
-          easing: "easeInOutSine",
-          d: LANDING.path.getAttribute("pathdata:id")
-        });
+        // anime({
+        //   targets: LANDING.intro,
+        //   duration: 2000,
+        //   easing: "easeInOutSine",
+        //   translateY: "-200vh"
+        // });
+        // anime({
+        //   targets: LANDING.path,
+        //   duration: 1500,
+        //   easing: "easeInOutSine",
+        //   d: LANDING.path.getAttribute("pathdata:id")
+        // });
+
       };
       svgAnimation();
     })
