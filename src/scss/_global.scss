@@ -15,7 +15,7 @@ $main: #1c1c1c;
 $f2: "aromanus";
 $f3: "Ventura Script";
 $mc: #d3a13b;
-$main: #6B3BE7;
+$main: #6b3be7;
 $white: #fff;
 
 // ---- Global-Tags ----
@@ -47,6 +47,9 @@ body {
 }
 a {
   color: #fff;
+}
+* {
+  // user-select: none;
 }
 
 // ---- Global-Classes ----
@@ -502,7 +505,43 @@ html.has-scroll-smooth {
   }
 }
 
-
 .layer {
   transition: 0.2s ease;
+}
+
+.o-image_wrapper {
+  position: relative;
+  overflow: hidden;
+  // background-color: #d4c9c9;
+  img {
+    transform: scale(1.6);
+  }
+}
+
+.reveal-img {
+  position: relative;
+  overflow: hidden;
+  img {
+    opacity: 0;
+  }
+  &::after {
+    content: "";
+    top: -100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(36, 36, 36);
+  }
+  @keyframes rev-img {
+    0% {
+      top: -100%;
+    }
+    50% {
+      top: 0;
+    }
+    100% {
+      top: 100%;
+    }
+  }
 }

@@ -143,16 +143,11 @@ $('.lang__list-item').click(function () {
 
 
 // --- Маленький Header при скролле
-$(window).scroll(() => {
-  var windowTop = $(window).scrollTop();
-  windowTop > 10 ? $('.header').addClass('header-mini') : $('.header').removeClass('header-mini');
+$('body').scroll(() => {
+  // $("body").css("background-color","red");
+  var windowTop = $('body').scrollTop();
+  windowTop > 100 ? $('.header').addClass('header-mini') : $('.header').removeClass('header-mini');
 });
-if ($(window).scrollTop() > 10) {
-  $('.header').addClass('header-mini')
-} else {
-  $('.header').removeClass('header-mini');
-}
-
 
 function generateBalls() {
   for (var i = 0; i < Math.floor(window.innerWidth/30); i++) {
